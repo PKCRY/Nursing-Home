@@ -6,9 +6,9 @@
     </head>
     <body>
         <h1> Welcome to YOUR Nursing Home!</h1>
-            <h2>If you are registering a family member please hit register</h2>
+            <h2>If you are registering a family member please click register</h2>
             
-        <form method="POST" action="register.php">
+        <form method="POST" action="patient_register.php">
             <input type="submit" name="register_btn" value="Register">
         </form>
         <h2>If you already have a login please Log In with your username and password</h2>
@@ -22,7 +22,7 @@
         </form>
 
         <?php
-            require '../php/login.php';
+            require '../src/login.php';
         ?>
     </body>
 </html>
