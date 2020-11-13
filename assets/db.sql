@@ -1,3 +1,5 @@
+DROP DATABASE IF EXISTS `nursing_home`;
+
 CREATE DATABASE IF NOT EXISTS `nursing_home`;
 USE `nursing_home`;
 
@@ -70,7 +72,7 @@ CREATE TABLE `appointment` (
 
 
 
-CREATE TABLE `patient_record` (
+CREATE TABLE `patient_records` (
   `record_id` serial PRIMARY KEY,
   `patient_id` int REFERENCES `user`(`user_id`),
   `morning_med` boolean,
