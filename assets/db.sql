@@ -9,7 +9,7 @@ DROP TABLE IF EXISTS `patient_info`;
 DROP TABLE IF EXISTS `employee_info`;
 DROP TABLE IF EXISTS `role`;
 DROP TABLE IF EXISTS `appointment`;
-DROP TABLE IF EXISTS `patient_records`;
+DROP TABLE IF EXISTS `patient_record`;
 DROP TABLE IF EXISTS `roster`;
 
 

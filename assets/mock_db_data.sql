@@ -3,14 +3,14 @@
     Supervisor: 4
     Doctor: 3
     Caregiver: 2
-    Patient: 1 
+    Patient: 1
     Family member: 1
 */
 
 
 
 INSERT INTO `role` (`role_name`, `access_level`)
-VALUES ("Admin", 5), 
+VALUES ("Admin", 5),
        ("Supervisor", 4),
        ("Doctor", 3),
        ("Caregiver", 2),
@@ -34,7 +34,7 @@ VALUES (6, "Maurice", "Petrov", "mauricepetrov80@gmail.com", 7177451999, "Passwo
 INSERT INTO `patient_info` (`user_id`, `family_code`, `emergency_contact`, `relation_of_contact`, `admission_date`)
 VALUES (3, "OAI343", "Maurice Petrov", "Son", "2019/02/23"),
        (4, "OA9G12", "Olivia Semmelweis", "Daughter", "2018/03/24");
-       
+
 
 INSERT INTO `employee_info` (`user_id`, `salary`)
 VALUES (5, 50000),
@@ -42,7 +42,7 @@ VALUES (5, 50000),
        (7, 50000),
        (8, 50000),
        (9, 120000),
-       (10, 120000), 
+       (10, 120000),
        (11, 150000);
 
 INSERT INTO `roster` (`supervisor`, `doctor`, `caregiver_1`, `caregiver_2`, `caregiver_3`, `caregiver_4`)
@@ -51,12 +51,8 @@ VALUES (11, 10, 5, 6, 7, 8);
 INSERT INTO `appointment` (`patient_id`,`doctor_id`, `appointment_date`)
 VALUES (3, 9, "2020/10/11"),
        (4, 10, "2020/03/11");
-       
 
-INSERT INTO `patient_records` (`patient_id`, `morning_med`, `afternoon_med`, `night_med`, `breakfast`, `lunch`, `dinner`, `cur_date`)
+
+INSERT INTO `patient_record` (`patient_id`, `morning_med`, `afternoon_med`, `night_med`, `breakfast`, `lunch`, `dinner`, `cur_date`)
 VALUES (3, 1, 1, 1, 1, 1, 1, "2020/12/23"),
        (4, 1, 0, 1, 1, 0, 1, "2020/11/10");
-
-
-
-
