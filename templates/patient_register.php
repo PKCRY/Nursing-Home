@@ -10,12 +10,12 @@
             <form method="POST" action="../src/auth/register.php">
               <label for="role">Please select your role first:</label>
                 <select name="role" onchange="check_role(role)">
-                  <option value="caregiver">Caregiver</option>
-                  <option value="doctor">Doctor</option>
-                  <option value="supervisor">Supervisor</option>
-                  <option value="administrator">Administrator</option>
-                  <option value="patient">Patient</option>
-                  <option value="family_member">Family Member</option>
+                  <option value="4">Caregiver</option>
+                  <option value="3">Doctor</option>
+                  <option value="2">Supervisor</option>
+                  <option value="1">Administrator</option>
+                  <option value="5">Patient</option>
+                  <option value="6">Family Member</option>
                 </select>
                 <label for="f_name">First Name:</label>
                 <input type="text" name="f_name">

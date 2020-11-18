@@ -19,21 +19,6 @@
   $DOB = $_POST['DOB'];
   $today = date("Y-m-d");
 
-  if ($role == 'admin') {
-    $role = 1;
-  } elseif ($role == 'supervisor') {
-    $role = 2;
-  } elseif ($role == 'doctor') {
-    $role = 3;
-  } elseif ($role == 'caregiver') {
-    $role = 4;
-  } elseif ($role == 'patient') {
-    $role = 5;
-  } elseif ($role == 'family_member') {
-    $role = 6;
-  }
-
-  echo $role;
 
 
   //query to insert user into database
@@ -75,6 +60,8 @@
     mysqli_query($link, $sql);
 
   }
-echo 'done';
+
+header('Location: ../../templates/main.php');
+echo 'yes';
 
 ?>
