@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>HTML basics</title>
+        <title>Nursing Home</title>
     </head>
     <body>
         <h1> Welcome to YOUR Nursing Home!</h1>
