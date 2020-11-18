@@ -12,7 +12,7 @@
 <<<<<<< HEAD
 =======
   
-  <form method="POST" action="accept_user.php">
+  <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
     <?php
         include '../src/register_acceptance/accept.php';
     ?>

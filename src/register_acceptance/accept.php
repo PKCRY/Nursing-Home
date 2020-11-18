@@ -53,14 +53,15 @@ foreach($_POST as $key=>$value){
 
 
     $accept_sql = <<<EOL
-                UPDATE `users`
-                SET `validated` = 1
-                WHERE `user_id` = $key
-                ;
+                UPDATE users
+                SET validated = 1
+                WHERE user_id = $key;
+                
                 EOL;
 
 
     mysqli_query($link, $accept_sql);
+    header('Location: ../templates/accept_user.php');
 }
 
 echo "</table>";
