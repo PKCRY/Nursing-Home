@@ -10,12 +10,12 @@
 
 
 INSERT INTO `role` (`role_name`, `access_level`)
-VALUES ("Admin", 5),
-       ("Supervisor", 4),
-       ("Doctor", 3),
-       ("Caregiver", 2),
-       ("Patient", 1),
-       ("family", 1);
+VALUES ("Admin", 5), --1
+       ("Supervisor", 4), --2
+       ("Doctor", 3), --3
+       ("Caregiver", 2), --4
+       ("Patient", 1), --5
+       ("family", 1); --6
 
 
 INSERT INTO `users` (`role_id`, `f_name`, `l_name`, `email`, `phone`, `password`, `dob`, `validated`)
