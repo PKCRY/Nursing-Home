@@ -10,7 +10,7 @@
 <body>
   <h1>Acceptance</h1>
   
-  <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+  <form method="POST" action="accept_user.php">
     <?php
         include '../src/register_acceptance/accept.php';
     ?>

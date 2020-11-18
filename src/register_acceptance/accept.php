@@ -10,7 +10,7 @@
     }
 
 $val_sql = <<<EOL
-            SELECT f_name, l_name, email, phone, dob, validated
+            SELECT f_name, l_name, user_id, email, phone, dob, validated
             FROM users
             WHERE validated = 0;
 EOL; 
@@ -24,6 +24,9 @@ if ($result = mysqli_query($link, $val_sql)) {
 }
 
 while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+
+    $f_name = $row['f_name'];
+    $user_id = $row['user_id'];
     echo "<table border='1'>
     <tr>
     <th>Firstname</th>
@@ -36,14 +39,47 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
     echo "<td>" . $row['email'] . "</td>";
     echo "<td>" . $row['phone'] . "</td>";
     echo "<td>" . $row['dob'] . "</td>";
-    echo "<td><input type='checkbox' name='validate_check[]'  value='0'></td>";
+    echo "<td><input type='checkbox' name= '$user_id'  value='ON'></td>";
     echo "</tr>";
+    
     
     echo "</table>";
     
 }
+
+foreach($_POST as $key=>$value){
+    echo $key;
+
+
+    
+    $accept_sql = <<<EOL
+                UPDATE `users`
+                SET `validated` = 1
+                WHERE `user_id` = $key
+                ;
+                EOL;
+
+    
+    mysqli_query($link, $accept_sql);
+}
+
 echo "</table>";
 
+
+
+
+
+/*if (isset($_POST['user_id[]'])) {
+    echo "you selected $user_id";
+}
+else {
+    echo "ehat are ye gonna do stab me";
+}
+*/
+
+
+
+/*
 $validator = $_POST['validate_check'];
   if(empty($validator)) 
   {
@@ -59,12 +95,13 @@ $validator = $_POST['validate_check'];
         echo "what are you gonna do stab me";
         /*$check_sql = <<<EOL
         
-        EOL;*/
+        EOL;
         $validator[$i] = "yeah? what of it";
       echo($row["l_name"] . $validator[$i] . " ");
     }
   }
-
+  
+  */
 
 
 
