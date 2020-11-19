@@ -10,6 +10,6 @@
     <form action="../../src/auth/logout.php" method="post">
       <input type="submit" name="logout" value="logout">
     </form>
-    
+
   </body>
 </html>

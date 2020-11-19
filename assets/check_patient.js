@@ -1,5 +1,6 @@
-let check_role = (role) => {
+const check_role = (role) => {
   if (role.value == 5) {
+    document.getElementsByClassName('register-form')[0].style.height = '650px';
     let show_data = (id) => {
       document.getElementById(id).style.display = 'inline';
     }
@@ -12,6 +13,7 @@ let check_role = (role) => {
     show_data('relation_label');
   }
   else{
+    document.getElementsByClassName('register-form')[0].style.height = '480px';
     let hide_data = (id) => {
       document.getElementById(id).style.display = 'none';
     }

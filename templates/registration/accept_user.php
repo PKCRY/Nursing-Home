@@ -10,7 +10,7 @@
 <body>
   <h1>User Validation:</h1>
 
-  <form method="POST" action="../src/register_acceptance/accept.php">
+  <form method="POST" action="../../src/register_acceptance/accept.php">
 
       <?php
       #establishes the connection to the database

@@ -10,12 +10,12 @@
 
 
 INSERT INTO `role` (`role_name`, `access_level`)
-VALUES ("Admin", 5), --1
-       ("Supervisor", 4), --2
-       ("Doctor", 3), --3
-       ("Caregiver", 2), --4
-       ("Patient", 1), --5
-       ("family", 1); --6
+VALUES ("Admin", 5),
+       ("Supervisor", 4),
+       ("Doctor", 3),
+       ("Caregiver", 2),
+       ("Patient", 1),
+       ("family", 1);
 
 
 INSERT INTO `users` (`role_id`, `f_name`, `l_name`, `email`, `phone`, `password`, `dob`, `validated`)
@@ -53,6 +53,6 @@ VALUES (3, 9, "2020/10/11"),
        (4, 10, "2020/03/11");
 
 
-INSERT INTO `patient_record` (`patient_id`, `morning_med`, `afternoon_med`, `night_med`, `breakfast`, `lunch`, `dinner`, `cur_date`)
+INSERT INTO `patient_records` (`patient_id`, `morning_med`, `afternoon_med`, `night_med`, `breakfast`, `lunch`, `dinner`, `cur_date`)
 VALUES (3, 1, 1, 1, 1, 1, 1, "2020/12/23"),
        (4, 1, 0, 1, 1, 0, 1, "2020/11/10");

@@ -11,15 +11,16 @@
     #validare users that are checked
     foreach($_POST as $key=>$value){
       $accept_sql = <<<EOL
-                  UPDATE users
-                  SET validated = 1
-                  WHERE user_id = $key;
+                  DELETE FROM role
+                  WHERE role_id = $key;
       EOL;
 
 
       mysqli_query($link, $accept_sql);
 
       #redirect to webpage to show updated users
-      header('Location: ../../templates/registration/accept_user.php');
-  }
+      header('Location: ../../templates/roles/roles.php');
+    }
+
+
 ?>

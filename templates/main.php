@@ -3,23 +3,20 @@
     <head>
         <meta charset="utf-8">
         <title>Nursing Home</title>
+        <link href="../assets/styles.css" rel="stylesheet" type="text/css">
     </head>
-    <body>
-        <h1> Welcome to YOUR Nursing Home!</h1>
-        <h2>If you are registering a family member please click register</h2>
+    <body class='main-body'>
+      <section class='main-section'>
+        <h1 class='main-header'> Welcome to YOUR Nursing Home!</h1>
 
-        <form method="POST" action="patient_register.php">
-            <input type="submit" name="register_btn" value="Register">
-        </form>
+        <h2 class='main-header'>If you already have an account please log in with your username and password</h2>
 
-        <h2>If you already have a login please log in with your username and password</h2>
-
-        <form method="POST" action="../src/auth/login.php">
-            <p>Email:</p>
-            <input type="text" name="email">
-            <p>Password:</p>
-            <input type="text" name="password">
-            <input type="submit" name="pass_sub" value="Log In">
+        <form method="POST" action="../src/auth/login.php" class='main-form'>
+            <label class='input-label' for="email">Email:</label>
+            <input class='input' type="text" name="email">
+            <label class='input-label' for="password">Password:</label>
+            <input class='input' type="password" name="password">
+            <input class='submit' type="submit" name="pass_sub" value="Log In">
         </form>
 
         <?php
@@ -59,5 +56,13 @@
           }
         }
         ?>
+
+        <h2 class='main-header'>If you would like to register please click here.</h2>
+
+        <form method="POST" action="registration/patient_register.php">
+            <input class='submit' type="submit" name="register_btn" value="Register">
+        </form>
+      </section>
+
     </body>
 </html>
