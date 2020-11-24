@@ -11,6 +11,7 @@ DROP TABLE IF EXISTS `role`;
 DROP TABLE IF EXISTS `appointment`;
 DROP TABLE IF EXISTS `patient_record`;
 DROP TABLE IF EXISTS `roster`;
+DROP TABLE IF EXISTS `home_groups`;
 
 
 
@@ -39,14 +40,16 @@ CREATE TABLE `patient_info` (
   `family_code` varchar(6),
   `emergency_contact` varchar(100),
   `relation_of_contact` varchar(100),
-  `admission_date` date
+  `admission_date` date,
+  `group_id` varchar(7)
 );
 
 
 CREATE TABLE `employee_info` (
   `e_info_id` serial PRIMARY KEY,
   `user_id` int REFERENCES `users`(`user_id`),
-  `salary` int
+  `salary` int,
+  `group_id` varchar(7)
 );
 
 
@@ -60,6 +63,7 @@ CREATE TABLE `roster` (
   `caregiver_3` int REFERENCES `user`(`user_id`),
   `caregiver_4` int REFERENCES `user`(`user_id`)
 );
+
 
 
 

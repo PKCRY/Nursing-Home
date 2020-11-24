@@ -56,3 +56,6 @@ VALUES (3, 9, "2020/10/11"),
 INSERT INTO `patient_records` (`patient_id`, `morning_med`, `afternoon_med`, `night_med`, `breakfast`, `lunch`, `dinner`, `cur_date`)
 VALUES (3, 1, 1, 1, 1, 1, 1, "2020/12/23"),
        (4, 1, 0, 1, 1, 0, 1, "2020/11/10");
+
+INSERT INTO `home_groups` (`employee_id`, `patient_id`, `group_num`)
+VALUES (2, 8, 4);

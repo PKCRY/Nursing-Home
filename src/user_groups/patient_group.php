@@ -10,9 +10,9 @@
 
     #validare users that are checked
     foreach($_POST as $key=>$value){
-      $accept_sql = <<<EOL
+      $group_sql = <<<EOL
                   UPDATE patient_info
-                  SET group_id = $value
+                  SET validated = 1
                   WHERE user_id = $key;
       EOL;
 
