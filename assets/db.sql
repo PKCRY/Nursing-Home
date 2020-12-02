@@ -58,7 +58,8 @@ CREATE TABLE `roster` (
   `caregiver_1` int REFERENCES `user`(`user_id`),
   `caregiver_2` int REFERENCES `user`(`user_id`),
   `caregiver_3` int REFERENCES `user`(`user_id`),
-  `caregiver_4` int REFERENCES `user`(`user_id`)
+  `caregiver_4` int REFERENCES `user`(`user_id`),
+  `date` date
 );
 
 
