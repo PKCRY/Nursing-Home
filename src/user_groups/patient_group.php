@@ -8,18 +8,28 @@
     }
 
 
-    #validare users that are checked
+    
+    
+    #validate users that are checked
     foreach($_POST as $key=>$value){
-      $group_sql = <<<EOL
+        
+        
+        echo "this is the value:" . " " . $value . "\n";
+        echo "<br>";
+       echo $key;
+
+        
+        
+      $group_assignment = <<<EOL
                   UPDATE patient_info
-                  SET validated = 1
+                  SET group_id = "$value"
                   WHERE user_id = $key;
       EOL;
 
 
-      mysqli_query($link, $accept_sql);
+      mysqli_query($link, $group_assignment);
 
-      #redirect to webpage to show updated users
-      header('Location: ../../templates/registration/accept_user.php');
+      header('Location: ../../templates/registration/add_group.php');
   }
+
 ?>

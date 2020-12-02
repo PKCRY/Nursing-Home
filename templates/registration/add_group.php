@@ -10,7 +10,7 @@
 <body>
     <h1>Patient Group Assignment</h1>
 
-    <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+    <form method="POST" action="../../src/user_groups/patient_group.php">
     <?php
       #establishes the connection to the database
       $link = mysqli_connect("localhost", "root", "", "nursing_home");
@@ -25,6 +25,8 @@
                 SELECT DISTINCT users.f_name, users.l_name, users.user_id
                 FROM users, patient_info
                 WHERE patient_info.group_id IS NULL
+                AND 
+                users.user_id = patient_info.user_id
       EOL;
 
       //run query, get result
@@ -47,18 +49,20 @@
               <td>{$row['f_name']}</td>
               <td>{$row['l_name']}</td>
               <td>
-                <select name="items" id="items">
-                    <option name="empty" value="empty"></option>
-                    <option name="cyan" value="cyan">Cyan</option>
-                    <option name="magenta" value="magenta">Magenta</option>
-                    <option name="yellow" value="yellow">Yellow</option>
-                    <option name="hell" value="hell">Hell</option>
+                <select name="$user_id" id="$user_id">
+                    <option name="empty" value="empty" ></option>
+                    <option name="cyan" value="cyan" >Cyan</option>
+                    <option name="magenta" value="magenta" >Magenta</option>
+                    <option name="yellow" value="yellow" >Yellow</option>
+                    <option name="hell" value="hell" >Hell</option>
                 </select>
             </td>
             </tr>
           </table>
           EOL;
       }
+
+        
       ?>
 
       <input type="Submit" name="accept_sub" value="submit">
