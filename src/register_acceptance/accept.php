@@ -10,7 +10,7 @@
     #check if user was accepted/denied
     if (isset($_POST['accept_sub'])) {
 
-      #validare users that are checked
+      #validate users that are checked
       foreach($_POST as $key=>$value){
         $accept_sql = <<<EOL
         UPDATE users
