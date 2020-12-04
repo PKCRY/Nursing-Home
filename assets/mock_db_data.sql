@@ -31,9 +31,9 @@ VALUES (6, "Maurice", "Petrov", "mauricepetrov80@gmail.com", 7177451999, "Passwo
        (2, "Edward", "Jenner", "edwardjenner23@gmail.com", 9801238501, "PasswordEdward", "1749/02/23", 1),
        (1, "Arthur", "Wellesley", "arthurwellesley43@gmail.com", 7172348920, "PasswordArthur", "1912/12/12", 1);
 
-INSERT INTO `patient_info` (`user_id`, `family_code`, `emergency_contact`, `relation_of_contact`, `admission_date`)
-VALUES (3, "OAI343", "Maurice Petrov", "Son", "2019/02/23"),
-       (4, "OA9G12", "Olivia Semmelweis", "Daughter", "2018/03/24");
+INSERT INTO `patient_info` (`user_id`, `family_code`, `emergency_contact`, `relation_of_contact`, `admission_date`, `group_id`)
+VALUES (3, "OAI343", "Maurice Petrov", "Son", "2019/02/23", "yellow"),
+       (4, "OA9G12", "Olivia Semmelweis", "Daughter", "2018/03/24", "hell");
 
 
 INSERT INTO `employee_info` (`user_id`, `salary`)
@@ -48,14 +48,12 @@ VALUES (5, 50000),
 INSERT INTO `roster` (`supervisor`, `doctor`, `caregiver_1`, `caregiver_2`, `caregiver_3`, `caregiver_4`)
 VALUES (11, 10, 5, 6, 7, 8);
 
-INSERT INTO `appointment` (`patient_id`,`doctor_id`, `appointment_date`)
-VALUES (3, 9, "2020/10/11"),
-       (4, 10, "2020/03/11");
+INSERT INTO `appointment` (`patient_id`,`doctor_id`, `appointment_date`, `morning_med`, `afternoon_med`, `night_med`)
+VALUES (3, 9, "2020/10/11", "Invega", "apriprazole", "cariprazine"),
+       (4, 10, "2020/03/11", "Advil", "benadryl", "apriprazole");
 
 
-INSERT INTO `patient_records` (`patient_id`, `morning_med`, `afternoon_med`, `night_med`, `breakfast`, `lunch`, `dinner`, `cur_date`)
+INSERT INTO `patient_records` (`patient_id`, `morning_med_check`, `afternoon_med_check`, `night_med_check`, `breakfast`, `lunch`, `dinner`, `cur_date` )
 VALUES (3, 1, 1, 1, 1, 1, 1, "2020/12/23"),
        (4, 1, 0, 1, 1, 0, 1, "2020/11/10");
 
-INSERT INTO `home_groups` (`employee_id`, `patient_id`, `group_num`)
-VALUES (2, 8, 4);

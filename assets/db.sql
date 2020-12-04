@@ -56,12 +56,12 @@ CREATE TABLE `employee_info` (
 
 CREATE TABLE `roster` (
   `roster_id` serial PRIMARY KEY,
-  `supervisor` int REFERENCES `user`(`user_id`),
-  `doctor` int REFERENCES `user`(`user_id`),
-  `caregiver_1` int REFERENCES `user`(`user_id`),
-  `caregiver_2` int REFERENCES `user`(`user_id`),
-  `caregiver_3` int REFERENCES `user`(`user_id`),
-  `caregiver_4` int REFERENCES `user`(`user_id`),
+  `supervisor` int REFERENCES `users`(`user_id`),
+  `doctor` int REFERENCES `users`(`user_id`),
+  `caregiver_1` int REFERENCES `users`(`user_id`),
+  `caregiver_2` int REFERENCES `users`(`user_id`),
+  `caregiver_3` int REFERENCES `users`(`user_id`),
+  `caregiver_4` int REFERENCES `users`(`user_id`),
   `date` date
 );
 
@@ -70,21 +70,27 @@ CREATE TABLE `roster` (
 
 CREATE TABLE `appointment` (
     `appointment_id` serial PRIMARY KEY,
-    `patient_id` int REFERENCES `user`(`user_id`),
-    `doctor_id` int REFERENCES `user`(`user_id`),
-    `appointment_date` date
+    `patient_id` int REFERENCES `users`(`user_id`),
+    `doctor_id` int REFERENCES `users`(`user_id`),
+    `appointment_date` date,
+    `morning_med` varchar(50),
+    `afternoon_med` varchar(50),
+    `night_med` varchar(50),
+    `patient_appointment` int REFERENCES `users`(`user_id`),
+    `presciption_date` date
 );
 
 
 
 CREATE TABLE `patient_records` (
   `record_id` serial PRIMARY KEY,
-  `patient_id` int REFERENCES `user`(`user_id`),
-  `morning_med` boolean,
-  `afternoon_med` boolean,
-  `night_med` boolean,
+  `patient_id` int REFERENCES `users`(`user_id`),
+  `morning_med_check` boolean,
+  `afternoon_med_check` boolean,
+  `night_med_check` boolean,
   `breakfast` boolean,
   `lunch` boolean,
   `dinner` boolean,
   `cur_date` date
 );
+
