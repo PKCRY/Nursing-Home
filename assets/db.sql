@@ -11,7 +11,6 @@ DROP TABLE IF EXISTS `role`;
 DROP TABLE IF EXISTS `appointment`;
 DROP TABLE IF EXISTS `patient_record`;
 DROP TABLE IF EXISTS `roster`;
-DROP TABLE IF EXISTS `home_groups`;
 
 
 

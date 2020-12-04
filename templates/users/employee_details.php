@@ -92,7 +92,7 @@
       EOL;
 
     }
-
+    
     ?>
 
     <form action="../../src/users/search_employee.php" method="post">
