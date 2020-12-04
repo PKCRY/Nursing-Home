@@ -8,18 +8,18 @@
     }
 
 
-    
-    
+
+
     #validate users that are checked
     foreach($_POST as $key=>$value){
-        
-        
+
+
         echo "this is the value:" . " " . $value . "\n";
         echo "<br>";
        echo $key;
 
-        
-        
+
+
       $group_assignment = <<<EOL
                   UPDATE patient_info
                   SET group_id = "$value"
