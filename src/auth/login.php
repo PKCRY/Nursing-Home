@@ -15,7 +15,7 @@
 
       #SQL statement to fetch role and user ids
       $sql = <<<EOL
-              SELECT role_id, user_id
+              SELECT role_id, user_id, f_name, l_name
               FROM users
               WHERE email = '$email' AND password = '$password';
       EOL;
@@ -32,6 +32,7 @@
         $_SESSION['is_logged_in'] = true;
         $_SESSION['user_id'] = $row[1];
         $_SESSION['user_role'] = $row[0];
+        $_SESSION['user_name'] = $row[2] . ' ' . $row[3];
 
         if ($row[0] == 1) {
           //if role is admin

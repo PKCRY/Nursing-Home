@@ -84,10 +84,10 @@ action="<?php #$_SERVER['PHP_SELF'];?> ">
           <label for="groups">Change Patient Group</label>
             <select name="$user_id" id="$user_id">
                         <option name="group_id" value="group_id">$group_id</option>
-                        <option name="cyan" value="cyan">Cyan</option>
-                        <option name="magenta" value="magenta" >Magenta</option>
-                        <option name="yellow" value="yellow" >Yellow</option>
-                        <option name="hell" value="hell" >Hell</option>
+                        <option name="1" value="1">1</option>
+                        <option name="2" value="2" >2</option>
+                        <option name="3" value="3" >3</option>
+                        <option name="4" value="4" >4</option>
                     </select>
                 <input type="Submit" name="change_group" value="Change Patients Group">
             </form>
