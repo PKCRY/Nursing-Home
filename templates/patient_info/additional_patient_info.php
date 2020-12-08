@@ -7,24 +7,7 @@
 </head>
 
 
-<!--
-Notes
 
-For this page I need the patient id
-the group_id and the ability to change it
-teh admission date which i have to add
-the patient name which will show up when user id is inputted
-
-
-need to figure out where to put everything so it auto fills when
-you input the patient_id
-
-need to find out where to put this form stuff
-probably best to put it in the php section
-
-../../src/user_groups/add_patient_info.php
-action="<?php #$_SERVER['PHP_SELF'];?> ">
--->
 
 <body>
     <h1>Additional Patient Information</h1>
@@ -97,11 +80,6 @@ action="<?php #$_SERVER['PHP_SELF'];?> ">
 
 
 ?>
-
-
-
-
-
 
 
 </body>

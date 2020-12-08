@@ -76,7 +76,8 @@ CREATE TABLE `appointment` (
     `afternoon_med` varchar(50),
     `night_med` varchar(50),
     `patient_appointment` int REFERENCES `users`(`user_id`),
-    `presciption_date` date
+    `presciption_date` date,
+    `comment` varchar(500)
 );
 
 

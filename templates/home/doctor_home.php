@@ -16,5 +16,10 @@
       <nav class='bubble-nav'>
         <a href="../users/patient_details.php">Patient List</a>
       </nav>
+
+      
+    
+    
+      </form>
   </body>
 </html>
