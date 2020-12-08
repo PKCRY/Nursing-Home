@@ -45,8 +45,8 @@ VALUES (5, 50000),
        (10, 120000),
        (11, 150000);
 
-INSERT INTO `roster` (`supervisor`, `doctor`, `caregiver_1`, `caregiver_2`, `caregiver_3`, `caregiver_4`)
-VALUES (11, 10, 5, 6, 7, 8);
+INSERT INTO `roster` (`supervisor`, `doctor`, `caregiver_1`, `caregiver_2`, `caregiver_3`, `caregiver_4`, `date`)
+VALUES (11, 10, 5, 6, 7, 8, '2020-12-03');
 
 INSERT INTO `appointment` (`patient_id`,`doctor_id`, `appointment_date`, `morning_med`, `afternoon_med`, `night_med`)
 VALUES (3, 9, "2020/10/11", "Invega", "apriprazole", "cariprazine"),
@@ -56,4 +56,3 @@ VALUES (3, 9, "2020/10/11", "Invega", "apriprazole", "cariprazine"),
 INSERT INTO `patient_records` (`patient_id`, `morning_med_check`, `afternoon_med_check`, `night_med_check`, `breakfast`, `lunch`, `dinner`, `cur_date` )
 VALUES (3, 1, 1, 1, 1, 1, 1, "2020/12/23"),
        (4, 1, 0, 1, 1, 0, 1, "2020/11/10");
-
