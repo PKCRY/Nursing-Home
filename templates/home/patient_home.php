@@ -20,9 +20,26 @@
 
     ?>
 
-    <form id="date-submit" action="" method="post">
+    <form id="date-submit" action="../../src/roles/patient_backend/patient_home_backend.php" method="post">
       <label for="date">Todays Date:</label>
-      <input type="date" name="date" value="<?php echo date("Y-m-d");?>" onchange="submit();">
+      <?php
+      //check if a search was made
+      if (isset($_SESSION['srch'])){
+        unset($_SESSION['srch']);
+
+        //use custom query
+        $date = $_SESSION['date'];
+        unset($_SESSION['date']);
+
+      } else {
+        //set todays date
+        $date = date("Y-m-d");
+
+      }
+
+      ?>
+      <input type="date" name="date" value="<?php echo $date; ?>" onchange="submit();">
+
     </form>
 
     <table>
@@ -48,47 +65,33 @@
             die("ERROR: Could not connect. " . mysqli_connect_error());
         }
 
-        //check if a search was made
-        if (isset($_SESSION['srch'])){
-          unset($_SESSION['srch']);
 
-          //use custom query
-          $query = $_SESSION['qry'];
-          unset($_SESSION['qry']);
+        //query for todays date
+        $query = <<<EOL
+        SELECT r.doctor, r.caregiver_1, r.caregiver_2, r.caregiver_3,
+        r.caregiver_4, p.morning_med_check, p.afternoon_med_check,
+        p.night_med_check, p.breakfast, p.lunch, p.dinner
+        FROM patient_records p, roster r
+        WHERE p.cur_date = '$date' AND
+        p.cur_date = r.date AND
+        p.patient_id = {$_SESSION['user_id']};
+        EOL;
 
-        } else {
-          //set todays date
-          $date = date("Y-m-d");
+        //query to see if there's an appointment for today
+        $apt_query = <<<EOL
+        SELECT *
+        FROM patient_records p, appointment a
+        WHERE a.patient_id = p.patient_id AND
+        a.appointment_date = p.cur_date;
+        EOL;
 
-
-          //query for todays date
-          $query = <<<EOL
-          SELECT r.doctor, r.caregiver_1, r.caregiver_2, r.caregiver_3,
-          r.caregiver_4, p.morning_med_check, p.afternoon_med_check,
-          p.night_med_check, p.breakfast, p.lunch, p.dinner
-          FROM patient_records p, roster r
-          WHERE p.cur_date = '$date' AND
-          p.cur_date = r.date AND
-          p.patient_id = {$_SESSION['user_id']};
-          EOL;
-
-          //query to see if there's an appointment for today
-          $apt_query = <<<EOL
-          SELECT *
-          FROM patient_records p, appointment a
-          WHERE a.patient_id = p.patient_id AND
-          a.appointment_date = p.cur_date;
-          EOL;
-
-          //query to find user's group
-          $group_query = <<<EOL
-          SELECT p.group_id
-          FROM users u, patient_info p
-          WHERE u.user_id = p.user_id AND
-          u.user_id = {$_SESSION['user_id']};
-          EOL;
-        }
-
+        //query to find user's group
+        $group_query = <<<EOL
+        SELECT p.group_id
+        FROM users u, patient_info p
+        WHERE u.user_id = p.user_id AND
+        u.user_id = {$_SESSION['user_id']};
+        EOL;
 
 
         //run info query
@@ -199,6 +202,8 @@
           EOL;
         }
 
+        unset($_SESSION['sql'], $_SESSION['apt_query'], $_SESSION['group_query']);
+        
         ?>
 
       </tr>
