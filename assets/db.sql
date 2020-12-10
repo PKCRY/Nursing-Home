@@ -11,6 +11,7 @@ DROP TABLE IF EXISTS `role`;
 DROP TABLE IF EXISTS `appointment`;
 DROP TABLE IF EXISTS `patient_record`;
 DROP TABLE IF EXISTS `roster`;
+DROP TABLE IF EXISTS `payments`;
 
 
 
@@ -40,7 +41,9 @@ CREATE TABLE `patient_info` (
   `emergency_contact` varchar(100),
   `relation_of_contact` varchar(100),
   `admission_date` date,
-  `group_id` int
+  `group_id` int,
+  `date_payed` date,
+  `payment` int
 );
 
 
@@ -75,9 +78,10 @@ CREATE TABLE `appointment` (
     `morning_med` varchar(50),
     `afternoon_med` varchar(50),
     `night_med` varchar(50),
-    `patient_appointment` int REFERENCES `users`(`user_id`),
     `presciption_date` date,
-    `comment` varchar(500)
+    `comment` varchar(500),
+    `completed` boolean
+    
 );
 
 
@@ -92,4 +96,7 @@ CREATE TABLE `patient_records` (
   `lunch` boolean,
   `dinner` boolean,
   `cur_date` date
+  
 );
+
+
