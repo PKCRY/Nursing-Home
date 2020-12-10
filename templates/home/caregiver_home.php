@@ -17,6 +17,7 @@
 
       <nav class='bubble-nav'>
         <a href="../users/patient_details.php">Patient List</a>
+        <a href="../roster/roster.php">View Roster</a>
       </nav>
 
       <form action="../../src/roles/caregiver_backend/caregiver_search.php" method="post">

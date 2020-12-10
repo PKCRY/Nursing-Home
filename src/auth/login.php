@@ -17,7 +17,8 @@
       $sql = <<<EOL
               SELECT role_id, user_id, f_name, l_name
               FROM users
-              WHERE email = '$email' AND password = '$password';
+              WHERE email = '$email' AND password = '$password'
+              AND validated = 1;
       EOL;
 
       #run query in database, check if user correctly logged in

@@ -5,7 +5,38 @@
     <title>Patient Info</title>
   </head>
   <body>
+    
+    <form action="../../src/auth/logout.php" method="post">
+      <input class='submit' type="submit" name="logout" value="Logout">
+    </form>
+
+    <form action="../../src/auth/home.php" method="post">
+      <input class='submit' type="submit" name="home" value="Home">
+    </form>
+
     <h1>List of Patient Information</h1>
+
+    <form action="../../src/users/search_patient.php" method="post">
+      <label for="">Search ID:</label>
+      <input type="number" name="s_id">
+      <label for="">Search First Name:</label>
+      <input type="text" name="s_f_name">
+      <label for="">Search Last Name:</label>
+      <input type="text" name="s_l_name">
+      <label for="">Search DOB:</label>
+      <input type="date" name="s_dob">
+      <label for="">Search Relation:</label>
+      <input type="text" name="s_relation">
+      <label for="">Search Contact:</label>
+      <input type="text" name="s_contact">
+      <label for="">Search Admission Date:</label>
+      <input type="date" name="s_admission">
+
+
+      <input type="submit" name="search" value="Search">
+    </form>
+
+    <button type="submit" name="button" onclick='location.reload()'>Show all</button>
 
     <table>
       <tr>
@@ -46,7 +77,8 @@
         $val_sql = <<<EOL
                     SELECT u.user_id, u.f_name, u.l_name, u.dob, p.relation_of_contact, p.emergency_contact, p.admission_date
                     FROM users u, patient_info p
-                    WHERE u.user_id = p.user_id;
+                    WHERE u.user_id = p.user_id AND
+                    validated = 1;
         EOL;
       }
 
@@ -75,26 +107,7 @@
       ?>
     </table>
 
-    <form action="../../src/users/search_patient.php" method="post">
-      <label for="">Search ID:</label>
-      <input type="number" name="s_id">
-      <label for="">Search First Name:</label>
-      <input type="text" name="s_f_name">
-      <label for="">Search Last Name:</label>
-      <input type="text" name="s_l_name">
-      <label for="">Search DOB:</label>
-      <input type="date" name="s_dob">
-      <label for="">Search Relation:</label>
-      <input type="text" name="s_relation">
-      <label for="">Search Contact:</label>
-      <input type="text" name="s_contact">
-      <label for="">Search Admission Date:</label>
-      <input type="date" name="s_admission">
 
-
-      <input type="submit" name="search" value="Search">
-    </form>
-    <button type="submit" name="button" onclick='location.reload()'>Show all</button>
 
   </body>
 </html>

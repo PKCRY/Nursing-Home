@@ -3,12 +3,17 @@
   <head>
     <meta charset="utf-8">
     <title>Patient's Homepage</title>
+    <link href="../../assets/styles.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="../../assets/main.js" defer></script>
 
   </head>
   <body>
     <h1>Patient Homepage</h1>
 
+    <nav class='bubble-nav'>
+      <a href="../roster/roster.php">View Roster</a>
+
+    </nav>
     <?php
     //start session
     session_start();
@@ -203,7 +208,7 @@
         }
 
         unset($_SESSION['sql'], $_SESSION['apt_query'], $_SESSION['group_query']);
-        
+
         ?>
 
       </tr>

@@ -1,14 +1,24 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>My Page Title</title>
-    <meta name="description" content="My Page Description">
-</head>
+  <head>
+      <meta charset="utf-8">
+      <title>My Page Title</title>
+      <meta name="description" content="My Page Description">
+  </head>
 
 
-<body>
+  <body>
+    
+    <form action="../../src/auth/logout.php" method="post">
+      <input class='submit' type="submit" name="logout" value="Logout">
+    </form>
+
+    <form action="../../src/auth/home.php" method="post">
+      <input class='submit' type="submit" name="home" value="Home">
+    </form>
+
     <h1>Patient Group Assignment</h1>
+
 
     <form method="POST" action="../../src/user_groups/patient_group.php">
     <?php
@@ -25,7 +35,7 @@
                 SELECT DISTINCT users.f_name, users.l_name, users.user_id
                 FROM users, patient_info
                 WHERE patient_info.group_id IS NULL
-                AND 
+                AND
                 users.user_id = patient_info.user_id
       EOL;
 
@@ -62,13 +72,12 @@
           EOL;
       }
 
-        
+
       ?>
 
       <input type="Submit" name="accept_sub" value="submit">
 
     </form>
 
-
-</body>
+  </body>
 </html>
