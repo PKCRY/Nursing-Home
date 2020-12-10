@@ -17,10 +17,11 @@
     $_SESSION['date_search'] = true;
 
     $_SESSION['appointment_date_query'] = <<<EOL
-    SELECT a.appointment_date, u.f_name, u.l_name, u.user_id
+    SELECT a.appointment_date, a.appointment_id, u.f_name, u.l_name, u.user_id
     FROM appointment a, users u
     WHERE a.appointment_date BETWEEN CURRENT_DATE AND '{$_POST['s_until_date']}'
     AND u.user_id = a.patient_id
+    AND a.doctor_id = 10
     
 
     EOL;
@@ -34,3 +35,5 @@
     header('Location: ../../../templates/roles/doctor/doctors_appointment.php');
 
  ?>
+
+

@@ -22,17 +22,22 @@
     $_SESSION['search'] = true;
 
     $_SESSION['doctor_appointment_query'] = <<<EOL
-    SELECT DISTINCT a.*, u.f_name, u.l_name, u.user_id
+    SELECT DISTINCT a.appointment_id, a.appointment_date, a.comment, a.morning_med, a.afternoon_med, a.night_med, u.f_name, u.l_name, u.user_id
     FROM appointment a, users u
-    WHERE u.user_id = a.patient_id AND 
-    u.user_id LIKE '{$_POST['sa_id']}' AND 
-    u.f_name LIKE '{$_POST['sa_f_name']}' AND 
-    u.l_name LIKE '{$_POST['sa_l_name']}' AND 
-    a.appointment_date LIKE '{$_POST['sa_date']}' AND 
-    a.comment LIKE '{$_POST['sa_comment']}' AND 
-    a.morning_med LIKE '{$_POST['sa_morning']}' AND 
-    a.afternoon_med LIKE '{$_POST['sa_afternoon']}' AND 
-    a.night_med LIKE '{$_POST['sa_night']}';
+    WHERE u.user_id = a.patient_id 
+    AND a.doctor_id = 10
+    AND a.appointment_date < DATE_SUB(CURRENT_DATE(), interval 1 DAY)
+    AND u.user_id LIKE '{$_POST['sa_id']}' 
+    AND u.f_name LIKE '{$_POST['sa_f_name']}' 
+    AND u.l_name LIKE '{$_POST['sa_l_name']}' 
+    AND a.appointment_date LIKE '{$_POST['sa_date']}' 
+    AND a.comment LIKE '{$_POST['sa_comment']}' 
+    AND a.morning_med LIKE '{$_POST['sa_morning']}' 
+    AND a.afternoon_med LIKE '{$_POST['sa_afternoon']}' 
+    AND a.night_med LIKE '{$_POST['sa_night']}'
+    ;
+
+
 
     EOL;
 
@@ -51,8 +56,10 @@
     $_SESSION['appointment_date_query'] = <<<EOL
     SELECT a.appointment_date, u.f_name, u.l_name, u.user_id
     FROM appointment a, users u
-    WHERE a.appointment_date BETWEEN CURRENT_DATE AND '{$_POST['s_until_date']}'
+    WHERE a.appointment_date BETWEEN DATE_SUB(CURRENT_DATE(), interval 1 DAY) AND '{$_POST['s_until_date']}'
     AND u.user_id = a.patient_id
+    AND a.doctor_id = 10
+    AND a.Completed = 0
 
     EOL;
     

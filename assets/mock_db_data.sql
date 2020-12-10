@@ -61,9 +61,10 @@ VALUES (9, 12, 5, 6, 7, 8, '2020-12-08'),
        (9, 12, 5, 7, 6, 8, '2020-12-10'),
        (10, 12, 8, 6, 7, 5, '2020-12-11');
 
-INSERT INTO `appointment` (`patient_id`,`doctor_id`, `appointment_date`, `morning_med`, `afternoon_med`, `night_med`)
-VALUES (3, 9, "2020/10/11", "Invega", "apriprazole", "cariprazine"),
-       (4, 10, "2020/03/11", "Advil", "benadryl", "apriprazole");
+INSERT INTO `appointment` (`patient_id`,`doctor_id`, `appointment_date`, `morning_med`, `afternoon_med`, `night_med`, `completed`)
+VALUES (3, 9, "2020/10/11", "Invega", "apriprazole", "cariprazine", 1),
+       (4, 10, "2020/03/11", "Advil", "benadryl", "apriprazole", 0),
+       (3, 10, "2020/12/10", "methamphetamine", "benadryl", "apriprazole", 0);
 
 
 INSERT INTO `patient_records` (`patient_id`, `morning_med_check`, `afternoon_med_check`, `night_med_check`, `breakfast`, `lunch`, `dinner`, `cur_date` )
