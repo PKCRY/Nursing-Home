@@ -36,8 +36,8 @@
 
 
     $appointment_sql = <<<EOL
-        INSERT INTO appointment (doctor_id, patient_id, appointment_date, comment, morning_med, afternoon_med, night_med)
-        VALUES ($value_items[2], $value_items[0], "$value_items[1]", "No comment", "Not Prescribed", "Not Prescribed", "Not Prescribed")
+        INSERT INTO appointment (doctor_id, patient_id, appointment_date, comment, morning_med, afternoon_med, night_med, Completed)
+        VALUES ($value_items[2], $value_items[0], "$value_items[1]", "No comment", "Not Prescribed", "Not Prescribed", "Not Prescribed", 0)
             
         
     EOL;

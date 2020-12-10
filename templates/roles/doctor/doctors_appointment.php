@@ -48,10 +48,11 @@
 
         #query to find all appointments
         $appointment_view_query = <<<EOL
-                    SELECT DISTINCT a.*, u.f_name, u.l_name, u.user_id
+                    SELECT DISTINCT a.appointment_id, a.appointment_date, a.comment, a.morning_med, a.afternoon_med, a.night_med, u.f_name, u.l_name, u.user_id
                     FROM appointment a, users u
                     WHERE u.user_id = a.patient_id
-                    
+                    AND a.appointment_date < CURRENT_DATE
+                    AND a.doctor_id = 10
                     
         EOL;
       }
@@ -122,14 +123,19 @@
     <form action="../../../src/roles/doctor_backend/doct_upcoming.php" method="post">
       <label for="">Upcoming Appointments Until</label>
       <input type="date" name="s_until_date">
+      <input type="submit" name="search" value="Search">
+    
+    </form>
 
     <table>
       
       <tr>
+          <th>Appointment_id</th>
         <th>Patient</th>
         <th>Date</th>
       </tr>
-
+      
+      
 
 
       <?php
@@ -158,10 +164,11 @@
 
         #query to find all appointments
         $appointment_date_query = <<<EOL
-            SELECT DISTINCT a.appointment_date, u.f_name, u.l_name, u.user_id
+            SELECT DISTINCT a.appointment_date, a.appointment_id, u.f_name, u.l_name, u.user_id
             FROM appointment a, users u
-            WHERE a.appointment_date = CURRENT_DATE
+            WHERE a.appointment_date = DATE_SUB(CURRENT_DATE(), interval 1 DAY)
             AND u.user_id = a.patient_id
+            AND a.doctor_id = 10
                     
                     
         EOL;
@@ -178,8 +185,14 @@
           echo <<<EOL
 
             <tr>
+            <td>{$appointment_date_row['appointment_id']}</td>
               <td>{$appointment_date_row['f_name']} {$appointment_date_row['l_name']}</td>
               <td>{$appointment_date_row['appointment_date']}</td>
+              <td><form action="../doctor/patient_of_doctor.php" method="post">
+              <input type="submit" name="{$appointment_date_row['appointment_id']}" value="Prescribe">
+      
+                </form> </td>
+              
              
             </tr>
 
@@ -194,8 +207,25 @@
       
       
     </table>
-    <input type="submit" name="search" value="Search">
-    </form>
+    
+    
+    
+    
+<!--<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        let rows = document.querySelectorAll("tr[data-href]");
+        console.log(rows);
+
+        rows.forEach(row => {
+            row.addEventListener("click", () => {
+                window.location.href = row.dataset.href;
+            });
+        });
+
+    });
+
+</script>
+-->
       
 
   </body>
