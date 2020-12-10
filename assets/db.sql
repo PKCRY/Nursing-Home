@@ -40,7 +40,7 @@ CREATE TABLE `patient_info` (
   `emergency_contact` varchar(100),
   `relation_of_contact` varchar(100),
   `admission_date` date,
-  `group_id` varchar(7)
+  `group_id` int
 );
 
 
@@ -48,7 +48,7 @@ CREATE TABLE `employee_info` (
   `e_info_id` serial PRIMARY KEY,
   `user_id` int REFERENCES `users`(`user_id`),
   `salary` int,
-  `group_id` varchar(7)
+  `group_id` int
 );
 
 
@@ -93,4 +93,3 @@ CREATE TABLE `patient_records` (
   `dinner` boolean,
   `cur_date` date
 );
-
