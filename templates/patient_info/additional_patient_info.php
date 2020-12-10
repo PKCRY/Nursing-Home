@@ -1,18 +1,23 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>My Page Title</title>
-    <meta name="description" content="My Page Description">
-</head>
+  <head>
+      <meta charset="utf-8">
+      <title>My Page Title</title>
+      <meta name="description" content="My Page Description">
+  </head>
+  <body>
 
+    <form action="../../src/auth/logout.php" method="post">
+      <input class='submit' type="submit" name="logout" value="Logout">
+    </form>
 
+    <form action="../../src/auth/home.php" method="post">
+      <input class='submit' type="submit" name="home" value="Home">
+    </form>
 
-
-<body>
     <h1>Additional Patient Information</h1>
     <form method="POST" action="../../src/user_groups/search_patient_info.php">
-        <label for="add_user_id">Type Patient ID Here</label>
+        <label for="add_user_id">Search by patient ID:</label>
         <input type="number" name="add_user_id" id="add_user_id" value="$user_id">
         <input type="Submit" name="submit_id" value="Find Patient">
     </form>
@@ -101,8 +106,6 @@
 
 
 
-?>
-
-
-</body>
+  ?>
+  </body>
 </html>

@@ -5,6 +5,15 @@
     <title>Create Roster</title>
   </head>
   <body>
+
+    <form action="../../src/auth/logout.php" method="post">
+      <input class='submit' type="submit" name="logout" value="Logout">
+    </form>
+
+    <form action="../../src/auth/home.php" method="post">
+      <input class='submit' type="submit" name="home" value="Home">
+    </form>
+    
     <h1>Create Roster</h1>
 
     <?php

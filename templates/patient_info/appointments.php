@@ -1,15 +1,20 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>My Page Title</title>
-    <meta name="description" content="My Page Description">
-</head>
+  <head>
+      <meta charset="utf-8">
+      <title>My Page Title</title>
+      <meta name="description" content="My Page Description">
+  </head>
+  <body>
 
+    <form action="../../src/auth/logout.php" method="post">
+      <input class='submit' type="submit" name="logout" value="Logout">
+    </form>
 
+    <form action="../../src/auth/home.php" method="post">
+      <input class='submit' type="submit" name="home" value="Home">
+    </form>
 
-
-<body>
     <h1>Make A New Appointment</h1>
     <form method="POST" action="../../src/appointments/appointment_search.php">
         <label for="appointment_patient_id">Type Patient ID Here</label>
@@ -59,51 +64,43 @@
         $group_id = $patient_row[3];
         $admission_date = $patient_row[4];
         $patient_name = $patient_row[0] . " " . $patient_row[1];
-        
-
-        
 
 
         //form for making the appointment
         echo <<< EOL
-
           <form method="POST" action="../../src/appointments/appointment_backend.php"
-          <p name='$user_id' id='$user_id' value='$user_id'>$patient_name</p>
-          <label for="appoint_date">Select the Appointment Date</label>
-          <input type="date" id="appoint_date", name="appoint_date">
-          
-                
-          EOL;
-    
-    
-    
-    $doctor_result = mysqli_query($link, $doctor_query);
-    
+            <p name='$user_id' id='$user_id' value='$user_id'>$patient_name</p>
+            <label for="appoint_date">Select the Appointment Date</label>
+            <input type="date" id="appoint_date", name="appoint_date">
+        EOL;
 
-    //sets up the dropdown menu initially
-    echo <<<EOL
+        $doctor_result = mysqli_query($link, $doctor_query);
+
+
+        //sets up the dropdown menu initially
+        echo <<<EOL
             <label for="doctor_select">Select the Doctor</label>
             <select name="doctor_select" id="doctor_select">
                 <option name="empty_doctor" value="empty_doctor"></option>
-                
+
         EOL;
-    // puts all of the doctors into the dropdown menu
-    while ($doctor_row = mysqli_fetch_array($doctor_result, MYSQLI_ASSOC)) {
-        $doctor_name = $doctor_row['f_name'];
-        $doctor_id = $doctor_row['user_id'];
-        echo <<<EOL
-            <option name="$doctor_name" value="$doctor_id">$doctor_name</option>  
-        EOL;
+        // puts all of the doctors into the dropdown menu
+        while ($doctor_row = mysqli_fetch_array($doctor_result, MYSQLI_ASSOC)) {
+          $doctor_name = $doctor_row['f_name'];
+          $doctor_id = $doctor_row['user_id'];
+          echo <<<EOL
+              <option name="$doctor_name" value="$doctor_id">$doctor_name</option>
+          EOL;
         }
 
         echo <<<EOL
-                </select>
-            <input type="Submit" name="make_appointment" value="Schedule Appointment">
+              </select>
+              <input type="Submit" name="make_appointment" value="Schedule Appointment">
             </form>
         EOL;
     }
-?>
+  ?>
 
 
-</body>
+  </body>
 </html>

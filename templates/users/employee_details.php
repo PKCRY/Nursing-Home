@@ -5,6 +5,15 @@
     <title>Employee Info</title>
   </head>
   <body>
+
+    <form action="../../src/auth/logout.php" method="post">
+      <input class='submit' type="submit" name="logout" value="Logout">
+    </form>
+
+    <form action="../../src/auth/home.php" method="post">
+      <input class='submit' type="submit" name="home" value="Home">
+    </form>
+    
     <h1>List of employees:</h1>
 
     <form action="../../src/users/search_employee.php" method="post">
