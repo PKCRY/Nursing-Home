@@ -10,8 +10,8 @@
 </head>
 
 <body class='main-body'>
-  <section class='main-section'>
 
+  <section class='main-section-2'>
     <form action="../../src/auth/logout.php" method="post">
       <input class='submit' type="submit" name="logout" value="Logout">
     </form>
@@ -19,6 +19,9 @@
     <form action="../../src/auth/home.php" method="post">
       <input class='submit' type="submit" name="home" value="Home">
     </form>
+  </section>
+
+  <section class='main-section'>
 
     <h1 class='main-header'>User Validation:</h1>
 

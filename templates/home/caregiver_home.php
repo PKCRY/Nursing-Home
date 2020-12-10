@@ -8,9 +8,7 @@
 
   </head>
   <body class='main-body'>
-    <section class='main-section'>
-      <h1 class='header'>Caregiver Homepage</h1>
-
+    <section class='main-section-3'>
       <form action="../../src/auth/logout.php" method="post">
         <input class='submit' type="submit" name="logout" value="logout">
       </form>
@@ -19,6 +17,11 @@
         <a href="../users/patient_details.php">Patient List</a>
         <a href="../roster/roster.php">View Roster</a>
       </nav>
+    </section>
+
+    <section class='main-section'>
+      <h1 class='header'>Caregiver Homepage</h1>
+
 
       <form action="../../src/roles/caregiver_backend/caregiver_search.php" method="post">
         <label for="user">Todays Patients:</label>
