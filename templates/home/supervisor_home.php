@@ -16,6 +16,13 @@
       <nav class='bubble-nav'>
         <a href="../users/patient_details.php">Patient List</a>
         <a href="../users/employee_details.php">Employee Information</a>
+        <a href="../patient_info/additional_patient_info.php">Additional Patient Information</a>
+        <a href="#">Doctor's Appointment</a>
+        <a href="../registration/accept_user.php">Validate Users</a>
+        <a href="../roster/roster.php">View Roster</a>
+        <a href="../roster/new_roster.php">Create Roster</a>
+        <a href="../patient_info/admins_report.php">Admin Report</a>
+        
       </nav>
 
     </section>

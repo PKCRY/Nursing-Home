@@ -7,6 +7,28 @@
   <body>
     <h1>List of employees:</h1>
 
+    <form action="../../src/users/search_employee.php" method="post">
+      <label for="">Search ID:</label>
+      <input type="number" name="s_id">
+      <label for="">Seach First Name:</label>
+      <input type="text" name="s_f_name">
+      <label for="">Seach Last Name:</label>
+      <input type="text" name="s_l_name">
+      <label for="">Seach Role Name:</label>
+      <select name="s_role_name">
+        <option value=""></option>
+        <option value="1">Admin</option>
+        <option value="2">Supervisor</option>
+        <option value="3">Doctor</option>
+        <option value="4">Caregiver</option>
+      </select>
+      <label for="">Seach Salary:</label>
+      <input type="text" name="s_salary">
+
+      <input type="submit" name="search" value="Search">
+    </form>
+    <button type="submit" name="button" onclick='location.reload()'>Show all</button>
+
     <table>
       <tr>
         <th>ID</th>
@@ -92,30 +114,10 @@
       EOL;
 
     }
-    
+
     ?>
 
-    <form action="../../src/users/search_employee.php" method="post">
-      <label for="">Search ID:</label>
-      <input type="number" name="s_id">
-      <label for="">Seach First Name:</label>
-      <input type="text" name="s_f_name">
-      <label for="">Seach Last Name:</label>
-      <input type="text" name="s_l_name">
-      <label for="">Seach Role Name:</label>
-      <select name="s_role_name">
-        <option value=""></option>
-        <option value="1">Admin</option>
-        <option value="2">Supervisor</option>
-        <option value="3">Doctor</option>
-        <option value="4">Caregiver</option>
-      </select>
-      <label for="">Seach Salary:</label>
-      <input type="text" name="s_salary">
 
-      <input type="submit" name="search" value="Search">
-    </form>
-    <button type="submit" name="button" onclick='location.reload()'>Show all</button>
 
 
   </body>

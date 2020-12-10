@@ -8,6 +8,11 @@
     <h1>Update/Check Roles</h1>
 
     <form action="../../src/roles/delete_role.php" method="post">
+      <table>
+        <tr>
+          <th>Role Name</th>
+          <th>Access Level</th>
+        </tr>
       <?php
 
       #establishes the connection to the database
@@ -31,21 +36,15 @@
       while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 
           echo <<<EOL
-          <table border='1'>
-            <tr>
-              <th>Role Name</th>
-              <th>Access Level</th>
-            </tr>
             <tr>
               <td>{$row['role_name']}</td>
               <td>{$row['access_level']}</td>
               <td><input type='checkbox' name='{$row['role_id']}'></td>
-              <td><a href='update_role_page.php' class='button'>Edit</a></td>
             </tr>
-          </table>
           EOL;
       }
       ?>
+      </table>
       <input type="submit" value="Remove Role(s)">
     </form>
 

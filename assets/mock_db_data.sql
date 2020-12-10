@@ -34,7 +34,8 @@ VALUES (6, "Maurice", "Petrov", "mauricepetrov80@gmail.com", 7177451999, "Passwo
        (5, "TEST", "PATIENT", "test@patient", 777777777, "1", "2020-10-19", 1), /*patient*/
        (6, "TEST", "FAMILY", "test@family", 777777777, "1", "2020-10-09", 1), /*family*/
        (1, "TEST", "ADMIN", "test@admin", 777777777, "1", "2020-05-05", 1), /*admin*/
-       (4, "TEST", "CAREGIVER", "test@caregiver", 7777777777, "1", "2020-10-10", 1); /*caregiver*/
+       (4, "TEST", "CAREGIVER", "test@caregiver", 7777777777, "1", "2020-10-10", 1), /*caregiver*/
+       (2, "TEST", "SUPERVISOR", "test@supervisor", 7777777777, "1", "2020-10-10", 1); /*supervisor*/
 
 INSERT INTO `patient_info` (`user_id`, `family_code`, `emergency_contact`, `relation_of_contact`, `admission_date`, `group_id`)
 VALUES (3, "OAI343", "Maurice Petrov", "Son", "2019/02/23", 2),
