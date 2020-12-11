@@ -21,10 +21,10 @@
 
     <section class="main-section">
       <h1>Make A New Appointment</h1>
-      <form method="POST" action="../../src/appointments/appointment_search.php">
-          <label for="appointment_patient_id">Type Patient ID Here</label>
-          <input type="number" name="appointment_patient_id" id="appointment_patient_id" value="$user_id">
-          <input type="Submit" name="submit_id" value="Find Patient">
+      <form class='form-search' method="POST" action="../../src/appointments/appointment_search.php">
+          <label class='input-label' for="appointment_patient_id">Type Patient ID:</label>
+          <input class='input' type="number" name="appointment_patient_id" id="appointment_patient_id" value="$user_id">
+          <input class='submit' type="Submit" name="submit_id" value="Find Patient">
       </form>
 
       <?php
@@ -73,10 +73,10 @@
 
           //form for making the appointment
           echo <<< EOL
-            <form method="POST" action="../../src/appointments/appointment_backend.php"
-              <p name='$user_id' id='$user_id' value='$user_id'>$patient_name</p>
-              <label for="appoint_date">Select the Appointment Date</label>
-              <input type="date" id="appoint_date", name="appoint_date">
+            <form class='form-search' method="POST" action="../../src/appointments/appointment_backend.php"
+              <p name='$user_id' id='$user_id' value='$user_id'>Patient Name: $patient_name</p>
+              <label class='input-label' for="appoint_date">Select the Appointment Date</label>
+              <input class='input' type="date" id="appoint_date", name="appoint_date">
           EOL;
 
           $doctor_result = mysqli_query($link, $doctor_query);
@@ -84,8 +84,8 @@
 
           //sets up the dropdown menu initially
           echo <<<EOL
-              <label for="doctor_select">Select the Doctor</label>
-              <select name="doctor_select" id="doctor_select">
+              <label class='input-label' for="doctor_select">Select the Doctor</label>
+              <select class='input' name="doctor_select" id="doctor_select">
                   <option name="empty_doctor" value="empty_doctor"></option>
 
           EOL;
@@ -100,7 +100,7 @@
 
           echo <<<EOL
                 </select>
-                <input type="Submit" name="make_appointment" value="Schedule Appointment">
+                <input class='submit' type="Submit" name="make_appointment" value="Schedule Appointment">
               </form>
           EOL;
       }

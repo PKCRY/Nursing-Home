@@ -27,10 +27,10 @@ VALUES (6, "Maurice", "Petrov", "mauricepetrov80@gmail.com", 7177451999, "Passwo
        (4, "Ada", "Lovelace", "adalovelace10@gmail.com", 7175219061, "PasswordLovelace", "1999/06/10", 1),  /*caregiver*/
        (4, "Dorathy", "Lawrence", "dorathylawrence23@gmail.com", 7176845764, "PasswordDorathy", "1998/07/06", 1), /*caregiver*/
        (4, "Dud", "Bolt", "dudbolt23@gmail.com", 7158634764, "PasswordDud", "1990/04/30", 1), /*caregiver*/
-       (2, "Jek", "Porkins", "jekporkins12@gmail.com", 7932845123, "PasswordJek", "1976/09/01", 1), /*supervisor*/
-       (2, "Edward", "Jenner", "edwardjenner23@gmail.com", 9801238501, "PasswordEdward", "1749/02/23", 1), /*supervisor*/
+       (3, "Jek", "Porkins", "jekporkins12@gmail.com", 7932845123, "PasswordJek", "1976/09/01", 1), /*doctor*/
+       (3, "Edward", "Jenner", "edwardjenner23@gmail.com", 9801238501, "PasswordEdward", "1749/02/23", 1), /*doctor*/
        (1, "Arthur", "Wellesley", "arthurwellesley43@gmail.com", 7172348920, "PasswordArthur", "1912/12/12", 1), /*admin*/
-       (2, "TEST", "DOCTOR", "test@doctor", 7777777777, "1", "2020-10-10", 1), /*doctor*/
+       (3, "TEST", "DOCTOR", "test@doctor", 7777777777, "1", "2020-10-10", 1), /*doctor*/
        (5, "TEST", "PATIENT", "test@patient", 777777777, "1", "2020-10-19", 1), /*patient*/
        (6, "TEST", "FAMILY", "test@family", 777777777, "1", "2020-10-09", 1), /*family*/
        (1, "TEST", "ADMIN", "test@admin", 777777777, "1", "2020-05-05", 1), /*admin*/

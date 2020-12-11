@@ -100,44 +100,44 @@
         ?>
       </table>
 
-      <form action="../../../src/roles/doctor_backend/doct_app_search.php" method="post">
-        <label for="">Search ID:</label>
-        <input type="number" name="sa_id">
+      <form class='form-search' action="../../../src/roles/doctor_backend/doct_app_search.php" method="post">
+        <label class='input-label' for="">Search ID:</label>
+        <input class='input' type="number" name="sa_id">
 
-        <label for="">Search First Name:</label>
-        <input type="text" name="sa_f_name">
+        <label class='input-label' for="">Search First Name:</label>
+        <input class='input' type="text" name="sa_f_name">
 
-        <label for="">Search Last Name:</label>
-        <input type="text" name="sa_l_name">
+        <label class='input-label' for="">Search Last Name:</label>
+        <input class='input' type="text" name="sa_l_name">
 
-        <label for="">Search Appointment Date:</label>
-        <input type="date" name="sa_date">
+        <label class='input-label' for="">Search Appointment Date:</label>
+        <input class='input' type="date" name="sa_date">
 
-        <label for="">Search Comment:</label>
-        <input type="text" name="sa_comment">
+        <label class='input-label' for="">Search Comment:</label>
+        <input class='input' type="text" name="sa_comment">
 
-        <label for="">Search Morning Medication:</label>
-        <input type="text" name="sa_morning">
+        <label class='input-label' for="">Search Morning Medication:</label>
+        <input class='input' type="text" name="sa_morning">
 
-        <label for="">Search Afternoon Medication:</label>
-        <input type="test" name="sa_afternoon">
+        <label class='input-label' for="">Search Afternoon Medication:</label>
+        <input class='input' type="test" name="sa_afternoon">
 
-        <label for="">Search Bedtime Medication:</label>
-        <input type="text" name="sa_night">
+        <label class='input-label' for="">Search Bedtime Medication:</label>
+        <input class='input' type="text" name="sa_night">
 
 
-        <input type="submit" name="search" value="Search">
+        <input class='submit' type="submit" name="search" value="Search">
       </form>
-      <button type="submit" name="button" onclick='location.reload()'>Show all</button>
+      <button class='submit' type="submit" name="button" onclick='location.reload()'>Show all</button>
 
 
 
 
       <h1>Appointments Until</h1>
       <form action="../../../src/roles/doctor_backend/doct_upcoming.php" method="post">
-        <label for="">Upcoming Appointments Until</label>
-        <input type="date" name="s_until_date">
-        <input type="submit" name="search" value="Search">
+        <label class='input-label' for="">Upcoming Appointments Until</label>
+        <input class='input' type="date" name="s_until_date">
+        <input class='submit' type="submit" name="search" value="Search">
 
       </form>
 
@@ -200,9 +200,9 @@
                 <td>{$appointment_date_row['f_name']} {$appointment_date_row['l_name']}</td>
                 <td>{$appointment_date_row['appointment_date']}</td>
                 <td><form action="../doctor/patient_of_doctor.php" method="post">
-                <input type="submit" name="{$appointment_date_row['appointment_id']}" value="Prescribe">
+                <input class='submit' type="submit" name="{$appointment_date_row['appointment_id']}" value="Prescribe">
 
-                  </form> </td>
+                </form> </td>
 
 
               </tr>

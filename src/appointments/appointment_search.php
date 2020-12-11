@@ -29,7 +29,7 @@
         SELECT DISTINCT users.f_name, users.l_name, users.user_id
         FROM users, employee_info
         WHERE users.user_id = employee_info.user_id
-        AND users.role_id = 2;
+        AND users.role_id = 3;
     EOL;
 
   //redirect back to

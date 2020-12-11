@@ -106,29 +106,29 @@
 
 
           echo <<<EOL
-            <form action="../../../src/roles/doctor_backend/pat_of_doc.php" method="post">
+            <form class='form-search' action="../../../src/roles/doctor_backend/pat_of_doc.php" method="post">
 
-                <label for="">Make a Comment</label>
-                <input type="text" name="sa_comment">
-
-
-
-                <label for="">Prescribe Morning Medication:</label>
-                <input type="text" name="sa_morning">
-
-                <label for="">Prescribe Afternoon Medication:</label>
-                <input type="text" name="sa_afternoon">
-
-                <label for="">Prescribe Bedtime Medication:</label>
-                <input type="text" name="sa_night">
+                <label class='input-label' for="">Make a Comment</label>
+                <input class='input' type="text" name="sa_comment">
 
 
-                <input type="submit" name="$appointment_id" value="Submit">
+
+                <label class='input-label' for="">Prescribe Morning Medication:</label>
+                <input class='input' type="text" name="sa_morning">
+
+                <label class='input-label' for="">Prescribe Afternoon Medication:</label>
+                <input class='input' type="text" name="sa_afternoon">
+
+                <label class='input-label' for="">Prescribe Bedtime Medication:</label>
+                <input class='input' type="text" name="sa_night">
+
+
+                <input class='submit' type="submit" name="$appointment_id" value="Submit">
             </form>
             EOL;
         }else{
             echo <<<EOL
-                <p> You may Only change the prescription on the day of the appointment !!</p>
+                <p> You can only change the prescription on the day of the appointment.</p>
             EOL;
         }
     }
