@@ -23,7 +23,7 @@
         <a href="../roster/roster.php">View Roster</a>
         <a href="../roster/new_roster.php">Create Roster</a>
         <a href="../patient_info/admins_report.php">Admin Report</a>
-        <a href="#">Patient Payment Information</a>
+        <a href="../roles/admin/patient_payment.php">Patient Payment Information</a>
       </nav>
 
     </section>

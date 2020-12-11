@@ -41,8 +41,7 @@
     }
 
     foreach ($_POST as $key=>$value) {
-        echo $key;
-        echo $value;
+        
         if ($value == 'Prescribe'){
           $appointment_id = $key;
  
@@ -83,8 +82,7 @@
 
         EOL;
 
-        echo $todays_date;
-        echo $doctor_patient_row['appointment_date'];
+        
         if ($todays_date == $doctor_patient_row['appointment_date']) {
             echo <<<EOL
             <form action="../../../src/roles/doctor_backend/pat_of_doc.php" method="post">

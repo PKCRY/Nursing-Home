@@ -16,6 +16,11 @@
       <nav class='bubble-nav'>
         <a href="../roster/roster.php">View Roster</a>
         <a href="../users/patient_details.php">Patient List</a>
+        <a href="../roles/doctor/doctors_appointment.php">Appointments</a>
+        
+        
+
+
       </nav>
 
 

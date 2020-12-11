@@ -18,8 +18,7 @@
 
     #validate users that are checked
     foreach ($_POST as $key=>$value) {
-      echo $key;
-      echo $value;
+      
         if ($value == 'Submit'){
           $appointment_id = $key;
 
