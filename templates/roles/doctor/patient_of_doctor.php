@@ -10,7 +10,7 @@
 
 
 <body>
-    <h1>Your patient</h1>
+    <h1>New Presciption</h1>
     <table>
       <tr>
     <th>Appointment ID</th>
@@ -44,16 +44,18 @@
         
         if ($value == 'Prescribe'){
           $appointment_id = $key;
- 
+          
         }
       }
+
+      
 
     $doctor_patient_sql = <<<EOL
         SELECT DISTINCT a.*, u.f_name, u.l_name, u.user_id
         FROM appointment a, users u
         WHERE u.user_id = a.patient_id
         AND a.appointment_id = $appointment_id
-        AND a.Completed = 0
+        
     
         
     EOL;
@@ -65,6 +67,7 @@
 
       date_default_timezone_set('America/New_York');
       $todays_date = date('Y-m-d');
+      
 
       while ($doctor_patient_row = mysqli_fetch_array($doctor_patient_result, MYSQLI_ASSOC)) {
           
@@ -84,12 +87,13 @@
 
         
         if ($todays_date == $doctor_patient_row['appointment_date']) {
-            echo <<<EOL
+
+          
+            
+          
+          echo <<<EOL
             <form action="../../../src/roles/doctor_backend/pat_of_doc.php" method="post">
       
-
-      
-
                 <label for="">Make a Comment</label>
                 <input type="text" name="sa_comment">
 
@@ -107,7 +111,7 @@
 
                 <input type="submit" name="$appointment_id" value="Submit">
             </form>
-    EOL;
+            EOL;
         }else{
             echo <<<EOL
                 <p> You may Only change the prescription on the day of the appointment !!</p>

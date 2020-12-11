@@ -37,7 +37,7 @@
                       night_med = '{$_POST['sa_night']}',
                       comment = '{$_POST['sa_comment']}',
                       prescription_date = DATE_SUB(CURRENT_DATE(), interval 1 DAY),
-                      Completed = 1
+                      completed = 1
                   WHERE appointment_id = $appointment_id
       EOL;
 

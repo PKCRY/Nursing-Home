@@ -61,10 +61,13 @@ VALUES (9, 12, 5, 6, 7, 8, '2020-12-08'),
        (9, 12, 5, 7, 6, 8, '2020-12-10'),
        (10, 12, 8, 6, 7, 5, '2020-12-11');
 
-INSERT INTO `appointment` (`patient_id`,`doctor_id`, `appointment_date`, `morning_med`, `afternoon_med`, `night_med`, `completed`)
-VALUES (3, 9, "2020/10/11", "Invega", "apriprazole", "cariprazine", 1),
-       (4, 10, "2020/03/11", "Advil", "benadryl", "apriprazole", 0),
-       (3, 10, "2020/12/10", "methamphetamine", "benadryl", "apriprazole", 0);
+INSERT INTO `appointment` (`patient_id`,`doctor_id`, `appointment_date`, `morning_med`, `afternoon_med`, `night_med`, `completed`, `comment`)
+VALUES (3, 9, "2020/10/11", "Invega", "apriprazole", "cariprazine", 1, "prescribed"),
+       (4, 10, "2020/03/11", "Advil", "benadryl", "apriprazole", 0, "prescribed"),
+       (13, 12, "2020/12/10", "advil", "apriprazole", "melatonin", 0, "Prescribed"),
+       (13, 12, "2020/12/11", "Not Prescribed", "Not Prescribed", "Not Prescribed", 0, "No comment"),
+       (13, 12, "2020/12/8", "methenphelidate", "advil", "melatonin", 1, "Patient Needs help with pain and focus during the day and sleep during the night"),
+       (3, 10, "2020/12/10", "methamphetamine", "benadryl", "apriprazole", 0, "No Comment");
 
 
 INSERT INTO `patient_records` (`patient_id`, `morning_med_check`, `afternoon_med_check`, `night_med_check`, `breakfast`, `lunch`, `dinner`, `cur_date` )

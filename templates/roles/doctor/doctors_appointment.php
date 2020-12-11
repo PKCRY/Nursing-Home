@@ -51,8 +51,10 @@
                     SELECT DISTINCT a.appointment_id, a.appointment_date, a.comment, a.morning_med, a.afternoon_med, a.night_med, u.f_name, u.l_name, u.user_id
                     FROM appointment a, users u
                     WHERE u.user_id = a.patient_id
-                    AND a.appointment_date < CURRENT_DATE
-                    AND a.doctor_id = 10
+                    AND a.appointment_date <= DATE_SUB(CURRENT_DATE(), interval 1 DAY)
+                    AND a.doctor_id = 12
+                    AND completed = 1
+                  
                     
         EOL;
       }
@@ -130,7 +132,7 @@
     <table>
       
       <tr>
-          <th>Appointment_id</th>
+          <th>Appointment Id</th>
         <th>Patient</th>
         <th>Date</th>
       </tr>
@@ -168,7 +170,8 @@
             FROM appointment a, users u
             WHERE a.appointment_date = DATE_SUB(CURRENT_DATE(), interval 1 DAY)
             AND u.user_id = a.patient_id
-            AND a.doctor_id = 10
+            AND a.doctor_id = 12
+            AND a.completed = 0
                     
                     
         EOL;

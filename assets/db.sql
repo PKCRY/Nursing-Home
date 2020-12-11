@@ -78,7 +78,7 @@ CREATE TABLE `appointment` (
     `morning_med` varchar(50),
     `afternoon_med` varchar(50),
     `night_med` varchar(50),
-    `presciption_date` date,
+    `prescription_date` date,
     `comment` varchar(500),
     `completed` boolean
     
