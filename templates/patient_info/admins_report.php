@@ -38,8 +38,8 @@
       //show date form
       echo <<<EOL
       <form id="date-submit" action="../../src/users/admin_report.php" method="post">
-        <label for="date">Date:</label>
-        <input type="date" name="date" value="$date" onchange="submit();">
+        <label class='input-label' for="date">Date:</label>
+        <input class='input' type="date" name="date" value="$date" onchange="submit();">
       </form>
       EOL;
 

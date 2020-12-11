@@ -22,8 +22,8 @@
       <h1>Family Member Homepage</h1>
 
 
-      <form action="../../src/roles/family_backend/family_search.php" method="post">
-        <label for="date">Todays Date:</label>
+      <form class='form-search' action="../../src/roles/family_backend/family_search.php" method="post">
+        <label class='input-label' for="date">Todays Date:</label>
         <?php
         //start session
         session_start();
@@ -51,15 +51,15 @@
         }
 
         ?>
-        <input type="date" name="date" value="<?php echo $date; ?>" onchange="submit();">
+        <input class='input' type="date" name="date" value="<?php echo $date; ?>" onchange="submit();">
 
-        <label for="fam_code">Family code:</label>
-        <input type="text" name="fam_code">
+        <label class='input-label' for="fam_code">Family code:</label>
+        <input class='input' type="text" name="fam_code">
 
-        <label for="patient_id">Patient ID:</label>
-        <input type="number" name="patient_id">
+        <label class='input-label' for="patient_id">Patient ID:</label>
+        <input class='input' type="number" name="patient_id">
 
-        <input type="submit" name="submit" value="Search">
+        <input class='submit' type="submit" name="submit" value="Search">
 
       </form>
 

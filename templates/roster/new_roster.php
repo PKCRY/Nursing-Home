@@ -54,12 +54,12 @@
       ?>
 
 
-      <form class="" action="../../src/roster/create_roster.php" method="post">
-        <label for="date">Date:</label>
-        <input type="date" name="date" value="<?php echo date("Y-m-d");?>">
+      <form class="form-search" action="../../src/roster/create_roster.php" method="post">
+        <label class='input-label' for="date">Date:</label>
+        <input class='input' type="date" name="date" value="<?php echo date("Y-m-d");?>">
 
-        <label for="supervisor">Supervisor:</label>
-        <select name="supervisor">
+        <label class='input-label' for="supervisor">Supervisor:</label>
+        <select class='input' name="supervisor">
           <?php
 
             //check which employees are supervisors
@@ -72,8 +72,8 @@
           ?>
         </select>
 
-        <label for="doctor">Doctor:</label>
-        <select type="text" name="doctor">
+        <label class='input-label' for="doctor">Doctor:</label>
+        <select class='input' type="text" name="doctor">
           <?php
 
             //check which employees are doctor
@@ -86,8 +86,8 @@
           ?>
         </select>
 
-        <label for="caregiver1">Caregiver 1:</label>
-        <select type="text" name="caregiver1">
+        <label class='input-label' for="caregiver1">Caregiver 1:</label>
+        <select class='input' type="text" name="caregiver1">
           <?php
 
             //check which employees are caregivers
@@ -100,8 +100,8 @@
           ?>
         </select>
 
-        <label for="caregiver2">Caregiver 2:</label>
-        <select type="text" name="caregiver2">
+        <label class='input-label' for="caregiver2">Caregiver 2:</label>
+        <select class='input' type="text" name="caregiver2">
           <?php
 
             //check which employees are caregivers
@@ -114,8 +114,8 @@
           ?>
         </select>
 
-        <label for="caregiver3">Caregiver 3:</label>
-        <select type="text" name="caregiver3">
+        <label class='input-label' for="caregiver3">Caregiver 3:</label>
+        <select class='input' type="text" name="caregiver3">
           <?php
 
             //check which employees are caregivers
@@ -128,8 +128,8 @@
           ?>
         </select>
 
-        <label for="caregiver4">Caregiver 4:</label>
-        <select type="text" name="caregiver4">
+        <label class='input-label' for="caregiver4">Caregiver 4:</label>
+        <select class='input' type="text" name="caregiver4">
           <?php
 
             //check which employees are caregivers
@@ -142,7 +142,7 @@
           ?>
         </select>
 
-        <input type="submit" name="submit" value="Submit">
+        <input class='submit' type="submit" name="submit" value="Submit">
       </form>
 
       <?php

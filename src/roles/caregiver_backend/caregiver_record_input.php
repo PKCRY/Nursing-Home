@@ -10,7 +10,7 @@
 
     //get user_id
     foreach ($_POST as $key => $value) {
-      if ($value == 'Update Record') {
+      if ($value == 'Update') {
         $id = $key;
       }
     }

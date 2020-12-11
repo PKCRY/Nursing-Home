@@ -34,7 +34,7 @@
       ?>
 
       <form id="date-submit" action="../../src/roles/patient_backend/patient_home_backend.php" method="post">
-        <label for="date">Todays Date:</label>
+        <label class='input-label' for="date">Todays Date:</label>
         <?php
         //check if a search was made
         if (isset($_SESSION['srch'])){
@@ -51,7 +51,7 @@
         }
 
         ?>
-        <input type="date" name="date" value="<?php echo $date; ?>" onchange="submit();">
+        <input class='input' type="date" name="date" value="<?php echo $date; ?>" onchange="submit();">
 
       </form>
 

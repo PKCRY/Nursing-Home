@@ -109,7 +109,7 @@
       </table>
 
       <form class="" id='date-submit' action="../../src/roster/search_roster.php" method="post">
-        <input type="date" name="date" value="<?php echo $row['date']; ?>" onchange="submit()">
+        <input class='input' type="date" name="date" value="<?php echo $row['date']; ?>" onchange="submit()">
       </form>
     </section>
 

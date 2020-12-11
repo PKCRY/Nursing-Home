@@ -3,233 +3,218 @@
   <head>
     <meta charset="utf-8">
     <title>Patient Appointment Info</title>
+    <link href="../../../assets/styles.css" rel="stylesheet" type="text/css">
+
   </head>
-  <body>
-    <h1>Doctors List of Patient Information</h1>
+  <body class='main-body'>
 
-    <table>
-      <tr>
-        <th>ID</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Appointment Date</th>
-        <th>Comment</th>
-        <th>Morning Med</th>
-        <th>Afternoon Med</th>
-        <th>Night Med</th>
-      </tr>
+    <section class='main-section-2'>
+      <form action="../../../src/auth/logout.php" method="post">
+        <input class='submit' type="submit" name="logout" value="Logout">
+      </form>
 
-      <?php
-      //start session
-      session_start();
+      <form class='form-search' action="../../../src/auth/home.php" method="post">
+        <input class='submit' type="submit" name="home" value="Home">
+      </form>
+    </section>
 
-      #establishes the connection to the database
-      $link = mysqli_connect("localhost", "root", "", "nursing_home");
+    <section class='main-section'>
+      <h1>Doctors List of Patient Information</h1>
 
-      #check if connection works
-      if ($link === false) {
-          die("ERROR: Could not connect. " . mysqli_connect_error());
-      }
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Appointment Date</th>
+          <th>Comment</th>
+          <th>Morning Med</th>
+          <th>Afternoon Med</th>
+          <th>Night Med</th>
+        </tr>
 
-      //check if search was made
-      if(isset($_SESSION['search'])) {
-
-        //reset
-        unset($_SESSION['search']);
-
-        //set query to custom search, then unset query
-        $appointment_view_query = $_SESSION['doctor_appointment_query'];
-        unset($_SESSION['doctor_appointment_query']);
-
-      } else{
-        //$doctor_id = $_SESSION['user_id'];
-        //echo "this is the doctor id: " . $doctor_id;
-        
-
-        #query to find all appointments
-        $appointment_view_query = <<<EOL
-                    SELECT DISTINCT a.appointment_id, a.appointment_date, a.comment, a.morning_med, a.afternoon_med, a.night_med, u.f_name, u.l_name, u.user_id
-                    FROM appointment a, users u
-                    WHERE u.user_id = a.patient_id
-                    AND a.appointment_date <= DATE_SUB(CURRENT_DATE(), interval 1 DAY)
-                    AND a.doctor_id = 12
-                    AND completed = 1
-                  
-                    
-        EOL;
-      }
-      
-
-
-      //run query, get result
-      $doctor_search_result = mysqli_query($link, $appointment_view_query);
-
-      //loop through all results, enter results into table
-      while ($appointment_row = mysqli_fetch_array($doctor_search_result, MYSQLI_ASSOC)) {
-          
-          echo <<<EOL
-
-            <tr>
-              <td>{$appointment_row['user_id']}</td>
-              <td>{$appointment_row['f_name']}</td>
-              <td>{$appointment_row['l_name']}</td>
-              <td>{$appointment_row['appointment_date']}</td>
-              <td>{$appointment_row['comment']}</td>
-              <td>{$appointment_row['morning_med']}</td>
-              <td>{$appointment_row['afternoon_med']}</td>
-              <td>{$appointment_row['night_med']}</td>
-            </tr>
-
-          EOL;
-      }
-
-      
-
-      ?>
-    </table>
-
-    <form action="../../../src/roles/doctor_backend/doct_app_search.php" method="post">
-      <label for="">Search ID:</label>
-      <input type="number" name="sa_id">
-
-      <label for="">Search First Name:</label>
-      <input type="text" name="sa_f_name">
-
-      <label for="">Search Last Name:</label>
-      <input type="text" name="sa_l_name">
-
-      <label for="">Search Appointment Date:</label>
-      <input type="date" name="sa_date">
-
-      <label for="">Search Comment:</label>
-      <input type="text" name="sa_comment">
-
-      <label for="">Search Morning Medication:</label>
-      <input type="text" name="sa_morning">
-      
-      <label for="">Search Afternoon Medication:</label>
-      <input type="test" name="sa_afternoon">
-
-      <label for="">Search Bedtime Medication:</label>
-      <input type="text" name="sa_night">
-
-
-      <input type="submit" name="search" value="Search">
-    </form>
-    <button type="submit" name="button" onclick='location.reload()'>Show all</button>
-
-
-    
-    
-    <h1>Appointments Until</h1>
-    <form action="../../../src/roles/doctor_backend/doct_upcoming.php" method="post">
-      <label for="">Upcoming Appointments Until</label>
-      <input type="date" name="s_until_date">
-      <input type="submit" name="search" value="Search">
-    
-    </form>
-
-    <table>
-      
-      <tr>
-          <th>Appointment Id</th>
-        <th>Patient</th>
-        <th>Date</th>
-      </tr>
-      
-      
-
-
-      <?php
-        
+        <?php
+        //start session
+        session_start();
 
         #establishes the connection to the database
         $link = mysqli_connect("localhost", "root", "", "nursing_home");
-  
+
         #check if connection works
         if ($link === false) {
             die("ERROR: Could not connect. " . mysqli_connect_error());
         }
-  
-        //check if search was made
-        if(isset($_SESSION['date_search'])) {
-  
-          //reset
-          unset($_SESSION['date_search']);
-  
-          //set query to custom search, then unset query
-          $appointment_date_query = $_SESSION['appointment_date_query'];
-          unset($_SESSION['appointment_date_query']);
-  
-        } else{
-        
 
-        #query to find all appointments
-        $appointment_date_query = <<<EOL
-            SELECT DISTINCT a.appointment_date, a.appointment_id, u.f_name, u.l_name, u.user_id
-            FROM appointment a, users u
-            WHERE a.appointment_date = DATE_SUB(CURRENT_DATE(), interval 1 DAY)
-            AND u.user_id = a.patient_id
-            AND a.doctor_id = 12
-            AND a.completed = 0
-                    
-                    
-        EOL;
-      
+        //check if search was made
+        if(isset($_SESSION['search'])) {
+
+          //reset
+          unset($_SESSION['search']);
+
+          //set query to custom search, then unset query
+          $appointment_view_query = $_SESSION['doctor_appointment_query'];
+          unset($_SESSION['doctor_appointment_query']);
+
+        } else{
+          //$doctor_id = $_SESSION['user_id'];
+          //echo "this is the doctor id: " . $doctor_id;
+
+
+          #query to find all appointments
+          $appointment_view_query = <<<EOL
+                      SELECT DISTINCT a.appointment_id, a.appointment_date, a.comment, a.morning_med, a.afternoon_med, a.night_med, u.f_name, u.l_name, u.user_id
+                      FROM appointment a, users u
+                      WHERE u.user_id = a.patient_id
+                      AND a.appointment_date <= DATE_SUB(CURRENT_DATE(), interval 1 DAY)
+                      AND a.doctor_id = 12
+                      AND completed = 1
+
+
+          EOL;
         }
 
 
-      //run query, get result
-      $appointment_date_result = mysqli_query($link, $appointment_date_query);
 
-      //loop through all results, enter results into table
-      while ($appointment_date_row = mysqli_fetch_array($appointment_date_result, MYSQLI_ASSOC)) {
-          
-          echo <<<EOL
+        //run query, get result
+        $doctor_search_result = mysqli_query($link, $appointment_view_query);
 
-            <tr>
-            <td>{$appointment_date_row['appointment_id']}</td>
-              <td>{$appointment_date_row['f_name']} {$appointment_date_row['l_name']}</td>
-              <td>{$appointment_date_row['appointment_date']}</td>
-              <td><form action="../doctor/patient_of_doctor.php" method="post">
-              <input type="submit" name="{$appointment_date_row['appointment_id']}" value="Prescribe">
-      
-                </form> </td>
-              
-             
-            </tr>
+        //loop through all results, enter results into table
+        while ($appointment_row = mysqli_fetch_array($doctor_search_result, MYSQLI_ASSOC)) {
+
+            echo <<<EOL
+              <tr>
+                <td>{$appointment_row['user_id']}</td>
+                <td>{$appointment_row['f_name']}</td>
+                <td>{$appointment_row['l_name']}</td>
+                <td>{$appointment_row['appointment_date']}</td>
+                <td>{$appointment_row['comment']}</td>
+                <td>{$appointment_row['morning_med']}</td>
+                <td>{$appointment_row['afternoon_med']}</td>
+                <td>{$appointment_row['night_med']}</td>
+              </tr>
+            EOL;
+        }
+
+
+
+        ?>
+      </table>
+
+      <form action="../../../src/roles/doctor_backend/doct_app_search.php" method="post">
+        <label for="">Search ID:</label>
+        <input type="number" name="sa_id">
+
+        <label for="">Search First Name:</label>
+        <input type="text" name="sa_f_name">
+
+        <label for="">Search Last Name:</label>
+        <input type="text" name="sa_l_name">
+
+        <label for="">Search Appointment Date:</label>
+        <input type="date" name="sa_date">
+
+        <label for="">Search Comment:</label>
+        <input type="text" name="sa_comment">
+
+        <label for="">Search Morning Medication:</label>
+        <input type="text" name="sa_morning">
+
+        <label for="">Search Afternoon Medication:</label>
+        <input type="test" name="sa_afternoon">
+
+        <label for="">Search Bedtime Medication:</label>
+        <input type="text" name="sa_night">
+
+
+        <input type="submit" name="search" value="Search">
+      </form>
+      <button type="submit" name="button" onclick='location.reload()'>Show all</button>
+
+
+
+
+      <h1>Appointments Until</h1>
+      <form action="../../../src/roles/doctor_backend/doct_upcoming.php" method="post">
+        <label for="">Upcoming Appointments Until</label>
+        <input type="date" name="s_until_date">
+        <input type="submit" name="search" value="Search">
+
+      </form>
+
+      <table>
+
+        <tr>
+          <th>Appointment Id</th>
+          <th>Patient</th>
+          <th>Date</th>
+        </tr>
+
+        <?php
+
+
+          #establishes the connection to the database
+          $link = mysqli_connect("localhost", "root", "", "nursing_home");
+
+          #check if connection works
+          if ($link === false) {
+              die("ERROR: Could not connect. " . mysqli_connect_error());
+          }
+
+          //check if search was made
+          if(isset($_SESSION['date_search'])) {
+
+            //reset
+            unset($_SESSION['date_search']);
+
+            //set query to custom search, then unset query
+            $appointment_date_query = $_SESSION['appointment_date_query'];
+            unset($_SESSION['appointment_date_query']);
+
+          } else{
+
+
+          #query to find all appointments
+          $appointment_date_query = <<<EOL
+              SELECT DISTINCT a.appointment_date, a.appointment_id, u.f_name, u.l_name, u.user_id
+              FROM appointment a, users u
+              WHERE a.appointment_date = DATE_SUB(CURRENT_DATE(), interval 1 DAY)
+              AND u.user_id = a.patient_id
+              AND a.doctor_id = 12
+              AND a.completed = 0
+
 
           EOL;
-      }
 
-      
-
-      ?>
+          }
 
 
-      
-      
-    </table>
-    
-    
-    
-    
-<!--<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        let rows = document.querySelectorAll("tr[data-href]");
-        console.log(rows);
+        //run query, get result
+        $appointment_date_result = mysqli_query($link, $appointment_date_query);
 
-        rows.forEach(row => {
-            row.addEventListener("click", () => {
-                window.location.href = row.dataset.href;
-            });
-        });
+        //loop through all results, enter results into table
+        while ($appointment_date_row = mysqli_fetch_array($appointment_date_result, MYSQLI_ASSOC)) {
 
-    });
+            echo <<<EOL
+              <tr>
+              <td>{$appointment_date_row['appointment_id']}</td>
+                <td>{$appointment_date_row['f_name']} {$appointment_date_row['l_name']}</td>
+                <td>{$appointment_date_row['appointment_date']}</td>
+                <td><form action="../doctor/patient_of_doctor.php" method="post">
+                <input type="submit" name="{$appointment_date_row['appointment_id']}" value="Prescribe">
 
-</script>
--->
-      
+                  </form> </td>
+
+
+              </tr>
+            EOL;
+        }
+
+
+
+        ?>
+      </table>
+    </section>
+
 
   </body>
 </html>

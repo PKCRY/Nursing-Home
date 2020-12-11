@@ -21,10 +21,10 @@
 
     <section class='main-section'>
       <h1>Additional Patient Information</h1>
-      <form method="POST" action="../../src/user_groups/search_patient_info.php">
-          <label for="add_user_id">Search by patient ID:</label>
-          <input type="number" name="add_user_id" id="add_user_id" value="$user_id">
-          <input type="Submit" name="submit_id" value="Find Patient">
+      <form class='form-search' method="POST" action="../../src/user_groups/search_patient_info.php">
+          <label class='input-label' for="add_user_id">Search by patient ID:</label>
+          <input class='input' type="number" name="add_user_id" id="add_user_id" value="$user_id">
+          <input class='submit' type="Submit" name="submit_id" value="Find Patient">
       </form>
 
       <?php
@@ -73,16 +73,16 @@
 
           //form for updating patient group
           echo <<< EOL
-            <form method="POST" action="../../src/user_groups/add_patient_info.php"
-              <label for="groups">Change Patient Group</label>
-                <select name="$user_id" id="$user_id">
+            <form class='form-search' method="POST" action="../../src/user_groups/add_patient_info.php"
+              <label class='input-label' for="groups">Change Patient Group</label>
+                <select class='input' name="$user_id" id="$user_id">
                   <option name="group_id" value="group_id">$group_id</option>
                   <option name="1" value="1">1</option>
                   <option name="2" value="2" >2</option>
                   <option name="3" value="3" >3</option>
                   <option name="4" value="4" >4</option>
                   </select>
-              <input type="Submit" name="change_group" value="Change Patients Group">
+              <input class='submit' type="Submit" name="change_group" value="Change">
             </form>
             EOL;
       } else {
@@ -95,16 +95,16 @@
 
         //form for updating patient group
         echo <<< EOL
-            <form method="POST" action="../../src/user_groups/add_patient_info.php"
-              <label for="groups">Change Patient Group</label>
-                <select>
+            <form class='form-search' method="POST" action="../../src/user_groups/add_patient_info.php"
+              <label class='input-label' for="groups">Change Patient Group</label>
+                <select class='input'>
                   <option name="group_id" value="group_id"></option>
                   <option name="1" value="1">1</option>
                   <option name="2" value="2" >2</option>
                   <option name="3" value="3" >3</option>
                   <option name="4" value="4" >4</option>
                   </select>
-              <input type="Submit" name="change_group" value="Change Patients Group">
+              <input class='submit' type="Submit" name="change_group" value="Change">
             </form>
           EOL;
       }
