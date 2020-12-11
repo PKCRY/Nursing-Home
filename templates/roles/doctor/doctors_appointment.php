@@ -13,11 +13,10 @@
         <input class='submit' type="submit" name="logout" value="Logout">
       </form>
 
-      <form action="../../../src/auth/home.php" method="post">
+      <form class='form-search' action="../../../src/auth/home.php" method="post">
         <input class='submit' type="submit" name="home" value="Home">
       </form>
     </section>
-
 
     <section class='main-section'>
       <h1>Doctors List of Patient Information</h1>
@@ -66,8 +65,10 @@
                       SELECT DISTINCT a.appointment_id, a.appointment_date, a.comment, a.morning_med, a.afternoon_med, a.night_med, u.f_name, u.l_name, u.user_id
                       FROM appointment a, users u
                       WHERE u.user_id = a.patient_id
-                      AND a.appointment_date < CURRENT_DATE
-                      AND a.doctor_id = 10
+                      AND a.appointment_date <= DATE_SUB(CURRENT_DATE(), interval 1 DAY)
+                      AND a.doctor_id = 12
+                      AND completed = 1
+
 
           EOL;
         }
@@ -81,7 +82,6 @@
         while ($appointment_row = mysqli_fetch_array($doctor_search_result, MYSQLI_ASSOC)) {
 
             echo <<<EOL
-
               <tr>
                 <td>{$appointment_row['user_id']}</td>
                 <td>{$appointment_row['f_name']}</td>
@@ -92,7 +92,6 @@
                 <td>{$appointment_row['afternoon_med']}</td>
                 <td>{$appointment_row['night_med']}</td>
               </tr>
-
             EOL;
         }
 
@@ -101,57 +100,54 @@
         ?>
       </table>
 
-      <form class='form-search' action="../../../src/roles/doctor_backend/doct_app_search.php" method="post">
-        <label class='input-label' for="">Search ID:</label>
-        <input class='input' type="number" name="sa_id">
+      <form action="../../../src/roles/doctor_backend/doct_app_search.php" method="post">
+        <label for="">Search ID:</label>
+        <input type="number" name="sa_id">
 
-        <label class='input-label' for="">Search First Name:</label>
-        <input class='input' type="text" name="sa_f_name">
+        <label for="">Search First Name:</label>
+        <input type="text" name="sa_f_name">
 
-        <label class='input-label' for="">Search Last Name:</label>
-        <input class='input' type="text" name="sa_l_name">
+        <label for="">Search Last Name:</label>
+        <input type="text" name="sa_l_name">
 
-        <label class='input-label' for="">Search Appointment Date:</label>
-        <input class='input' type="date" name="sa_date">
+        <label for="">Search Appointment Date:</label>
+        <input type="date" name="sa_date">
 
-        <label class='input-label' for="">Search Comment:</label>
-        <input class='input' type="text" name="sa_comment">
+        <label for="">Search Comment:</label>
+        <input type="text" name="sa_comment">
 
-        <label class='input-label' for="">Search Morning Medication:</label>
-        <input class='input' type="text" name="sa_morning">
+        <label for="">Search Morning Medication:</label>
+        <input type="text" name="sa_morning">
 
-        <label class='input-label' for="">Search Afternoon Medication:</label>
-        <input class='input' type="test" name="sa_afternoon">
+        <label for="">Search Afternoon Medication:</label>
+        <input type="test" name="sa_afternoon">
 
-        <label class='input-label' for="">Search Bedtime Medication:</label>
-        <input class='input' type="text" name="sa_night">
+        <label for="">Search Bedtime Medication:</label>
+        <input type="text" name="sa_night">
 
 
-        <input class='submit' type="submit" name="search" value="Search">
+        <input type="submit" name="search" value="Search">
       </form>
-      <button class='submit' type="submit" name="button" onclick='location.reload()'>Show all</button>
+      <button type="submit" name="button" onclick='location.reload()'>Show all</button>
 
 
 
 
       <h1>Appointments Until</h1>
-      <form class='form-search' action="../../../src/roles/doctor_backend/doct_upcoming.php" method="post">
-        <label class='input-label' for="">Upcoming Appointments Until</label>
-        <input class='input' type="date" name="s_until_date">
-        <input class='submit' type="submit" name="search" value="Search">
+      <form action="../../../src/roles/doctor_backend/doct_upcoming.php" method="post">
+        <label for="">Upcoming Appointments Until</label>
+        <input type="date" name="s_until_date">
+        <input type="submit" name="search" value="Search">
 
       </form>
 
       <table>
 
         <tr>
-            <th>Appointment_id</th>
+          <th>Appointment Id</th>
           <th>Patient</th>
           <th>Date</th>
         </tr>
-
-
-
 
         <?php
 
@@ -183,7 +179,8 @@
               FROM appointment a, users u
               WHERE a.appointment_date = DATE_SUB(CURRENT_DATE(), interval 1 DAY)
               AND u.user_id = a.patient_id
-              AND a.doctor_id = 10
+              AND a.doctor_id = 12
+              AND a.completed = 0
 
 
           EOL;
@@ -198,7 +195,6 @@
         while ($appointment_date_row = mysqli_fetch_array($appointment_date_result, MYSQLI_ASSOC)) {
 
             echo <<<EOL
-
               <tr>
               <td>{$appointment_date_row['appointment_id']}</td>
                 <td>{$appointment_date_row['f_name']} {$appointment_date_row['l_name']}</td>
@@ -210,39 +206,14 @@
 
 
               </tr>
-
             EOL;
         }
 
 
 
         ?>
-
-
-
-
       </table>
-
-
-
-
-  <!--<script>
-      document.addEventListener("DOMContentLoaded", () => {
-          let rows = document.querySelectorAll("tr[data-href]");
-          console.log(rows);
-
-          rows.forEach(row => {
-              row.addEventListener("click", () => {
-                  window.location.href = row.dataset.href;
-              });
-          });
-
-      });
-
-  </script>
-  -->
     </section>
-
 
 
   </body>

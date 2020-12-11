@@ -19,9 +19,11 @@
     $_SESSION['appointment_date_query'] = <<<EOL
     SELECT a.appointment_date, a.appointment_id, u.f_name, u.l_name, u.user_id
     FROM appointment a, users u
-    WHERE a.appointment_date BETWEEN CURRENT_DATE AND '{$_POST['s_until_date']}'
+    WHERE a.appointment_date >= DATE_SUB(CURRENT_DATE(), interval 1 DAY)
+    AND a.appointment_date <= "{$_POST['s_until_date']}"
     AND u.user_id = a.patient_id
-    AND a.doctor_id = 10
+    AND a.doctor_id = 12
+    AND a.Completed = 0
     
 
     EOL;
