@@ -4,12 +4,26 @@
     <meta charset="utf-8">
     <title>My Page Title</title>
     <meta name="description" content="My Page Description">
+    <link href="../../../assets/styles.css" rel="stylesheet" type="text/css">
+
 </head>
 
 
 
 
-<body>
+<body class='main-body'>
+
+  <section class='main-section-2'>
+    <form action="../../../src/auth/logout.php" method="post">
+      <input class='submit' type="submit" name="logout" value="Logout">
+    </form>
+
+    <form class='form-search' action="../../../src/auth/home.php" method="post">
+      <input class='submit' type="submit" name="home" value="Home">
+    </form>
+  </section>
+
+  <section class='main-section'>
     <h1>Your patient</h1>
     <table>
       <tr>
@@ -23,11 +37,11 @@
       </tr>
 
     <?php
-    
+
 
     session_start();
 
-    
+
     //$appointment_id = $_POST['s_appointmend_id'];
 
 
@@ -41,10 +55,10 @@
     }
 
     foreach ($_POST as $key=>$value) {
-        
+
         if ($value == 'Prescribe'){
           $appointment_id = $key;
- 
+
         }
       }
 
@@ -54,12 +68,12 @@
         WHERE u.user_id = a.patient_id
         AND a.appointment_id = $appointment_id
         AND a.Completed = 0
-    
-        
+
+
     EOL;
 
       //run query
-      
+
       $doctor_patient_result = mysqli_query($link, $doctor_patient_sql);
 
 
@@ -67,7 +81,7 @@
       $todays_date = date('Y-m-d');
 
       while ($doctor_patient_row = mysqli_fetch_array($doctor_patient_result, MYSQLI_ASSOC)) {
-          
+
         echo <<<EOL
 
           <tr>
@@ -82,22 +96,22 @@
 
         EOL;
 
-        
+
         if ($todays_date == $doctor_patient_row['appointment_date']) {
             echo <<<EOL
             <form action="../../../src/roles/doctor_backend/pat_of_doc.php" method="post">
-      
 
-      
+
+
 
                 <label for="">Make a Comment</label>
                 <input type="text" name="sa_comment">
 
-    
+
 
                 <label for="">Prescribe Morning Medication:</label>
                 <input type="text" name="sa_morning">
-    
+
                 <label for="">Prescribe Afternoon Medication:</label>
                 <input type="text" name="sa_afternoon">
 
@@ -115,28 +129,28 @@
         }
     }
 
-    
+
 
     //$sql_appointment_date = $doctor_patient_result['appointment_date'];
     //echo $sql_appointment_date;
 
-    
+
 
 /*
     echo <<<EOL
     <form action="../../../src/roles/doctor_backend/pat_of_doc.php" method="post">
-      
 
-      
+
+
 
         <label for="">Make a Comment</label>
         <input type="text" name="sa_comment">
 
-    
+
 
         <label for="">Prescribe Morning Medication:</label>
         <input type="text" name="sa_morning">
-    
+
         <label for="">Prescribe Afternoon Medication:</label>
         <input type="text" name="sa_afternoon">
 
@@ -149,6 +163,8 @@
     EOL;
 */
 ?>
+  </section>
+
 
 
 

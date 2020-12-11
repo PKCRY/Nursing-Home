@@ -24,8 +24,9 @@
 
 
       <form action="../../src/roles/caregiver_backend/caregiver_search.php" method="post">
-        <label for="user">Todays Patients:</label>
-        <select name='user' onchange="submit();">
+        <label class='input-label' for="user">Todays Patients:</label>
+        <select class='input' name='user' onchange="submit();">
+          <option value="blank"></option>
           <?php
           //start session
           session_start();
@@ -198,7 +199,7 @@
           </tr>
         </table>
 
-        <input type="submit" name="<?php echo $user_id; ?>" value="Update Record">
+        <input class='submit' type="submit" name="<?php echo $user_id; ?>" value="Update">
       </form>
 
   </body>

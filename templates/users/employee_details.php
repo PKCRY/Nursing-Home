@@ -21,27 +21,27 @@
     <section class="main-section">
       <h1>List of employees:</h1>
 
-      <form action="../../src/users/search_employee.php" method="post">
-        <label for="">Search ID:</label>
-        <input type="number" name="s_id">
-        <label for="">Seach First Name:</label>
-        <input type="text" name="s_f_name">
-        <label for="">Seach Last Name:</label>
-        <input type="text" name="s_l_name">
-        <label for="">Seach Role Name:</label>
-        <select name="s_role_name">
+      <form class='form-search' action="../../src/users/search_employee.php" method="post">
+        <label class='input-label' for="">Search ID:</label>
+        <input class='input' type="number" name="s_id">
+        <label class='input-label' for="">Seach First Name:</label>
+        <input class='input' type="text" name="s_f_name">
+        <label class='input-label' for="">Seach Last Name:</label>
+        <input class='input' type="text" name="s_l_name">
+        <label class='input-label' for="">Seach Role Name:</label>
+        <select class='input' name="s_role_name">
           <option value=""></option>
           <option value="1">Admin</option>
           <option value="2">Supervisor</option>
           <option value="3">Doctor</option>
           <option value="4">Caregiver</option>
         </select>
-        <label for="">Seach Salary:</label>
-        <input type="text" name="s_salary">
+        <label class='input-label' for="">Seach Salary:</label>
+        <input class='input' type="text" name="s_salary">
 
-        <input type="submit" name="search" value="Search">
+        <input class='submit' type="submit" name="search" value="Search">
       </form>
-      <button type="submit" name="button" onclick='location.reload()'>Show all</button>
+      <button class='submit' type="submit" name="button" onclick='location.reload()'>Show all</button>
 
       <table>
         <tr>
@@ -118,12 +118,12 @@
       if ($_SESSION['user_role'] == 1) {
         echo <<<EOL
 
-        <form action="../../src/users/update_employee.php" method="post">
-          <label for="id">ID:</label>
-          <input type="number" name="id">
-          <label for="salary">New Salary:</label>
-          <input type="number" name="salary" value="salary">
-          <button type="submit" name="submit">Update Salary</button>
+        <form class='form-search' action="../../src/users/update_employee.php" method="post">
+          <label class='input-label' for="id">ID:</label>
+          <input class='input' type="number" name="id">
+          <label class='input-label' for="salary">New Salary:</label>
+          <input class='input' type="number" name="salary" value="salary">
+          <button class='submit' type="submit" name="submit">Update Salary</button>
         </form>
         EOL;
 

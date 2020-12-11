@@ -59,15 +59,15 @@
         }
         ?>
         </table>
-        <input type="submit" value="Remove Role(s)">
+        <input class='submit' type="submit" value="Remove">
       </form>
 
-      <form action="../../src/roles/create_role.php" method="post">
-        <label for="role_name">Insert Role Name:</label>
-        <input type="text" name="role_name">
-        <label for="access_l">Insert Access Level:</label>
-        <input type="number" name="access_l">
-        <input type="submit" value="Add Role">
+      <form class='form-search' action="../../src/roles/create_role.php" method="post">
+        <label class='input-label' for="role_name">Insert Role Name:</label>
+        <input class='input' type="text" name="role_name">
+        <label class='input-label' for="access_l">Insert Access Level:</label>
+        <input class='input' type="number" name="access_l">
+        <input class='submit' type="submit" value="Add Role">
       </form>
     </section>
   </body>
