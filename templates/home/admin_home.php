@@ -17,7 +17,7 @@
         <a href="../registration/accept_user.php">Validate Users</a>
         <a href="../users/patient_details.php">Patient List</a>
         <a href="../patient_info/additional_patient_info.php">Additional Patient Information</a>
-        <a href="#">Doctor Appointment Information</a>
+        <a href="../patient_info/appointments.php">Make New Appointment</a>
         <a href="../roles/roles.php">Update/Change Roles</a>
         <a href="../users/employee_details.php">Employee Information</a>
         <a href="../roster/roster.php">View Roster</a>
