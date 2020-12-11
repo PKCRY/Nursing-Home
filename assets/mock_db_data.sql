@@ -30,17 +30,17 @@ VALUES (6, "Maurice", "Petrov", "mauricepetrov80@gmail.com", 7177451999, "Passwo
        (2, "Jek", "Porkins", "jekporkins12@gmail.com", 7932845123, "PasswordJek", "1976/09/01", 1), /*supervisor*/
        (2, "Edward", "Jenner", "edwardjenner23@gmail.com", 9801238501, "PasswordEdward", "1749/02/23", 1), /*supervisor*/
        (1, "Arthur", "Wellesley", "arthurwellesley43@gmail.com", 7172348920, "PasswordArthur", "1912/12/12", 1), /*admin*/
-       (3, "TEST", "DOCTOR", "test@doctor", 7777777777, "1", "2020-10-10", 1), /*doctor*/
+       (2, "TEST", "DOCTOR", "test@doctor", 7777777777, "1", "2020-10-10", 1), /*doctor*/
        (5, "TEST", "PATIENT", "test@patient", 777777777, "1", "2020-10-19", 1), /*patient*/
        (6, "TEST", "FAMILY", "test@family", 777777777, "1", "2020-10-09", 1), /*family*/
        (1, "TEST", "ADMIN", "test@admin", 777777777, "1", "2020-05-05", 1), /*admin*/
        (4, "TEST", "CAREGIVER", "test@caregiver", 7777777777, "1", "2020-10-10", 1), /*caregiver*/
        (2, "TEST", "SUPERVISOR", "test@supervisor", 7777777777, "1", "2020-10-10", 1); /*supervisor*/
 
-INSERT INTO `patient_info` (`user_id`, `family_code`, `emergency_contact`, `relation_of_contact`, `admission_date`, `group_id`)
-VALUES (3, "OAI343", "Maurice Petrov", "Son", "2019/02/23", 2),
-       (4, "OA9G12", "Olivia Semmelweis", "Daughter", "2018/03/24", 2),
-       (13, "test", "Olivia Semmelweis", "Mother", "2020-08-10", 2);
+INSERT INTO `patient_info` (`user_id`, `family_code`, `emergency_contact`, `relation_of_contact`, `admission_date`, `group_id`, `date_payed`)
+VALUES (3, "OAI343", "Maurice Petrov", "Son", "2019/02/23", 2, "2019/02/23"),
+       (4, "OA9G12", "Olivia Semmelweis", "Daughter", "2018/03/24", 2, "2018/03/24"),
+       (13, "test", "Olivia Semmelweis", "Mother", "2020-08-10", 2, "2020-08-10");
 
 
 INSERT INTO `employee_info` (`user_id`, `salary`, `group_id`)

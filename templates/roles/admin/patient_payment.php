@@ -141,7 +141,7 @@
             $last_amount_payed_sql = <<<EOL
             SELECT payment
             FROM patient_info
-            WHERE user_id = 3
+            WHERE user_id = 13
 
           EOL;
 
@@ -158,6 +158,7 @@
           
           $total_due = (($num_of_appointments * 50) + ($days_charged * 10) + ($prescription_months * ($med_amount * 5))- $last_payed);
 
+          echo "THESE ARE ALL THE NUMBERS FOR THE EQUATION" . $num_of_appointments . $days_charged . $prescription_months . $med_amount . $last_payed;
           
 
           
